@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "ActVerge Auditor",
+  "version": "1.0.0",
+  "description": "Companion auditor extension for ActVerge - Real-time browser agent outcome verification",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ActVerge Auditor"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="30" stroke="#3b82f6" stroke-width="3" fill="none"/>
+
+  <!-- Inner hexagon -->
+  <polygon
+    points="32,8 52,20 52,44 32,56 12,44 12,20"
+    stroke="#3b82f6"
+    stroke-width="2"
+    fill="#eff6ff"
+  />
+
+  <!-- A letter (Act) -->
+  <text
+    x="32"
+    y="38"
+    text-anchor="middle"
+    font-family="system-ui, sans-serif"
+    font-weight="800"
+    font-size="22"
+    fill="#1d4ed8"
+    letter-spacing="-1"
+  >AV</text>
+
+  <!-- Pulse dots -->
+  <circle cx="32" cy="4" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="60" cy="20" r="2.5" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="60" cy="44" r="2.5" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="32" cy="60" r="3" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="4" cy="44" r="2.5" fill="#3b82f6" opacity="0.4"/>
+  <circle cx="4" cy="20" r="2.5" fill="#3b82f6" opacity="0.4"/>
+</svg>
