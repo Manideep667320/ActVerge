@@ -8,12 +8,13 @@ os.environ.setdefault("LOG_LEVEL", "WARNING")
 os.environ.setdefault("DATABASE_URL", "sqlite+aiosqlite:///./test_actverge.db")
 
 from actverge.api.main import app
-from actverge.core.database import init_db
+from actverge.core.database import init_db, engine
 
 @pytest.fixture(autouse=True)
 async def initialize_database():
     await init_db()
     yield
+    await engine.dispose()
 
 @pytest.fixture
 async def client() -> AsyncGenerator[AsyncClient, None]:

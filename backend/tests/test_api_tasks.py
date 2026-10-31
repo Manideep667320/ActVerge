@@ -33,7 +33,7 @@ async def test_verify_external_state_api(client: AsyncClient):
 async def test_tasks_crud_api(client: AsyncClient):
     # 1. Create a task via API
     create_payload = {"user_task": "Automated workflow test"}
-    with patch("actverge.api.routes.tasks.run_task_job"):
+    with patch("actverge.api.routes.tasks.run_task_job", new_callable=AsyncMock):
         create_res = await client.post("/api/tasks", json=create_payload)
         assert create_res.status_code == 200
         task_data = create_res.json()
