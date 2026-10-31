@@ -1,7 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from enum import Enum
 from sqlmodel import SQLModel, Field
 import uuid
+
+def utc_now() -> datetime:
+    return datetime.now(timezone.utc)
 
 class TaskStatus(str, Enum):
     QUEUED = "queued"
@@ -23,8 +26,8 @@ class Task(TaskBase, table=True):
     __tablename__ = "tasks"
     id: str = Field(default_factory=lambda: str(uuid.uuid4()), primary_key=True)
     status: TaskStatus = Field(default=TaskStatus.QUEUED)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=utc_now)
+    updated_at: datetime = Field(default_factory=utc_now)
 
 class TaskCreate(TaskBase):
     pass

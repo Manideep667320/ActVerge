@@ -1,7 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List
 from sqlmodel import SQLModel, Field, Column, JSON
 import uuid
+
+def utc_now() -> datetime:
+    return datetime.now(timezone.utc)
 
 class EvidencePackage(SQLModel, table=True):
     __tablename__ = "evidence_packages"
@@ -14,4 +17,4 @@ class EvidencePackage(SQLModel, table=True):
     console_logs: List[Dict[str, Any]] = Field(default_factory=list, sa_column=Column(JSON))
     accessibility_tree: Optional[Dict[str, Any]] = Field(default=None, sa_column=Column(JSON))
     raw_state: Optional[Dict[str, Any]] = Field(default=None, sa_column=Column(JSON))
-    collected_at: datetime = Field(default_factory=datetime.utcnow)
+    collected_at: datetime = Field(default_factory=utc_now)

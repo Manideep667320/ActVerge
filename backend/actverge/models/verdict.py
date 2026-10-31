@@ -1,8 +1,11 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, List
 from enum import Enum
 from sqlmodel import SQLModel, Field, Column, JSON
 import uuid
+
+def utc_now() -> datetime:
+    return datetime.now(timezone.utc)
 
 class VerdictType(str, Enum):
     SUCCESS = "SUCCESS"
@@ -20,4 +23,4 @@ class Verdict(SQLModel, table=True):
     evidence_summary: List[str] = Field(default_factory=list, sa_column=Column(JSON))
     recovery_attempted: bool = Field(default=False)
     escalated: bool = Field(default=False)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=utc_now)

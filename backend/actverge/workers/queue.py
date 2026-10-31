@@ -7,7 +7,7 @@ from actverge.agents.graph import actverge_graph
 from actverge.core.database import async_session_maker
 from actverge.models import Task, TaskStatus, Verdict, VerdictType, EvidencePackage
 from sqlmodel import select
-from datetime import datetime
+from datetime import datetime, timezone
 
 logger = logging.getLogger("actverge.worker")
 
@@ -33,7 +33,7 @@ async def run_task_job(ctx: dict, task_id: str):
             return
         user_task = task.user_task
         task.status = TaskStatus.RUNNING
-        task.updated_at = datetime.utcnow()
+        task.updated_at = datetime.now(timezone.utc)
         await session.commit()
 
     await publish_event(r, task_id, "node_start", node="task_interpreter")
@@ -52,7 +52,7 @@ async def run_task_job(ctx: dict, task_id: str):
         "recovery_safe": False,
         "escalated": False,
         "error": None,
-        "created_at": datetime.utcnow().isoformat(),
+        "created_at": datetime.now(timezone.utc).isoformat(),
     }
 
     try:
@@ -92,7 +92,7 @@ async def run_task_job(ctx: dict, task_id: str):
             task = res.first()
             if task:
                 task.status = TaskStatus.COMPLETE
-                task.updated_at = datetime.utcnow()
+                task.updated_at = datetime.now(timezone.utc)
                 session.add(task)
 
             # Insert or update verdict
@@ -128,7 +128,7 @@ async def run_task_job(ctx: dict, task_id: str):
             "evidence_summary": ["DOM confirmation text matched", "Multi-source evidence verified"],
             "recovery_attempted": current_state.get("recovery_attempted", False),
             "escalated": current_state.get("escalated", False),
-            "created_at": datetime.utcnow().isoformat(),
+            "created_at": datetime.now(timezone.utc).isoformat(),
         }
         await publish_event(r, task_id, "verdict", data=verdict_payload)
         await publish_event(r, task_id, "state", data=current_state)
@@ -141,7 +141,7 @@ async def run_task_job(ctx: dict, task_id: str):
             task = res.first()
             if task:
                 task.status = TaskStatus.ERROR
-                task.updated_at = datetime.utcnow()
+                task.updated_at = datetime.now(timezone.utc)
                 await session.commit()
         await publish_event(r, task_id, "error", data={"message": str(e)})
 

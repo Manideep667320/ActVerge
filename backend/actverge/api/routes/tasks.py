@@ -1,6 +1,6 @@
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import List, Dict, Any, AsyncGenerator, Optional
 from fastapi import APIRouter, Depends, HTTPException, BackgroundTasks
 from sqlmodel.ext.asyncio.session import AsyncSession
@@ -98,7 +98,7 @@ async def get_task_verdict(task_id: str, session: AsyncSession = Depends(get_ses
             evidence_summary=[],
             recovery_attempted=False,
             escalated=False,
-            created_at=datetime.utcnow(),
+            created_at=datetime.now(timezone.utc),
         )
     return verdict
 
@@ -111,7 +111,7 @@ async def get_task_evidence(task_id: str, session: AsyncSession = Depends(get_se
         return []
 
     items = []
-    ts = pkg.collected_at.isoformat() if pkg.collected_at else datetime.utcnow().isoformat()
+    ts = pkg.collected_at.isoformat() if pkg.collected_at else datetime.now(timezone.utc).isoformat()
 
     # 1. Visual Screenshot
     if pkg.screenshot_url:
@@ -341,11 +341,11 @@ async def verify_external_state(
         screenshot_url=screenshot_url,
         dom_snapshot=payload.dom_summary or "<html><body>Verified Content</body></html>",
         console_logs=payload.console_logs or [
-            {"level": "INFO", "message": f"Captured tab at {payload.target_url}", "timestamp": datetime.utcnow().isoformat()},
-            {"level": "SUCCESS", "message": "Auditor captured live DOM and accessibility hierarchy", "timestamp": datetime.utcnow().isoformat()}
+            {"level": "INFO", "message": f"Captured tab at {payload.target_url}", "timestamp": datetime.now(timezone.utc).isoformat()},
+            {"level": "SUCCESS", "message": "Auditor captured live DOM and accessibility hierarchy", "timestamp": datetime.now(timezone.utc).isoformat()}
         ],
         network_logs=payload.network_events or [
-            {"method": "GET", "url": payload.target_url, "status": 200, "type": "document", "timestamp": datetime.utcnow().isoformat()}
+            {"method": "GET", "url": payload.target_url, "status": 200, "type": "document", "timestamp": datetime.now(timezone.utc).isoformat()}
         ],
         accessibility_tree=payload.accessibility_tree or {
             "role": "document",
@@ -356,7 +356,7 @@ async def verify_external_state(
             "url": payload.target_url,
             "title": payload.page_title,
             "origin": "chrome_extension_auditor",
-            "extracted_at": datetime.utcnow().isoformat()
+            "extracted_at": datetime.now(timezone.utc).isoformat()
         },
         action_trace=[
             {
@@ -365,7 +365,7 @@ async def verify_external_state(
                 "target": payload.target_url,
                 "value": None,
                 "result": f"Audited live browser tab via ActVerge companion extension ({payload.page_title})",
-                "timestamp": datetime.utcnow().isoformat()
+                "timestamp": datetime.now(timezone.utc).isoformat()
             }
         ]
     )
@@ -418,12 +418,12 @@ async def verify_external_state(
         ],
         recovery_attempted=False,
         escalated=False,
-        created_at=datetime.utcnow()
+        created_at=datetime.now(timezone.utc)
     )
     session.add(verdict_record)
 
     task.status = TaskStatus.COMPLETE
-    task.updated_at = datetime.utcnow()
+    task.updated_at = datetime.now(timezone.utc)
     session.add(task)
 
     if db_available:
