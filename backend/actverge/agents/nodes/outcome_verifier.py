@@ -134,7 +134,10 @@ async def outcome_verifier_node(state: ActVergeState) -> Dict[str, Any]:
     match_ratio = matches / max(len(t_words), 1)
 
     # Detect partial workflow (e.g. input field has query but results not loaded)
-    has_inputs_filled = any(f'value="{w}' in ev_str for w in t_words)
+    has_inputs_filled = any(
+        f'value="{w}' in ev_str or f"value='{w}" in ev_str or f'value=\"{w}' in ev_str
+        for w in t_words
+    )
 
     if match_ratio >= 0.5 and not has_inputs_filled:
         verdict = "SUCCESS"

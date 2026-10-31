@@ -21,6 +21,8 @@ from actverge.models import (
     EvidencePackage,
 )
 from actverge.workers.queue import run_task_job
+from actverge.agents.nodes.outcome_verifier import outcome_verifier_node
+from actverge.executor.observer import generate_screenshot_svg
 
 logger = logging.getLogger("actverge.routes.tasks")
 router = APIRouter(prefix="/tasks", tags=["tasks"])
@@ -303,8 +305,6 @@ async def verify_external_state(
     Used by the ActVerge Companion Chrome Extension and external autonomous agents
     to audit and verify a live webpage state without running an internal executor.
     """
-    from actverge.agents.nodes.outcome_verifier import outcome_verifier_node
-    from actverge.executor.observer import generate_screenshot_svg
 
     # 1. Register Task
     db_available = True

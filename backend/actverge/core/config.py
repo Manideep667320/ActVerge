@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from dotenv import load_dotenv
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -5,19 +6,22 @@ from pydantic import field_validator
 from typing import List, Union
 import json
 
-_backend_env = Path(__file__).resolve().parent.parent.parent / ".env"
-_root_env = Path(__file__).resolve().parent.parent.parent.parent / ".env"
-_env_path = _backend_env if _backend_env.exists() else _root_env
-load_dotenv(_env_path)
+is_test = os.environ.get("ENVIRONMENT") == "test" or "PYTEST_CURRENT_TEST" in os.environ
+
+if not is_test:
+    _backend_env = Path(__file__).resolve().parent.parent.parent / ".env"
+    _root_env = Path(__file__).resolve().parent.parent.parent.parent / ".env"
+    _env_path = _backend_env if _backend_env.exists() else _root_env
+    load_dotenv(_env_path)
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "ActVerge"
     VERSION: str = "0.1.0"
-    ENVIRONMENT: str = "development"
-    LOG_LEVEL: str = "INFO"
+    ENVIRONMENT: str = "test" if is_test else "development"
+    LOG_LEVEL: str = "WARNING" if is_test else "INFO"
 
     # Database
-    DATABASE_URL: str = "postgresql+asyncpg://actverge:actverge@localhost:5432/actverge"
+    DATABASE_URL: str = "sqlite+aiosqlite:///:memory:" if is_test else "postgresql+asyncpg://actverge:actverge@localhost:5432/actverge"
 
     # Redis & Queues
     REDIS_URL: str = "redis://localhost:6379/0"
@@ -36,7 +40,7 @@ class Settings(BaseSettings):
     # Observability
     LANGCHAIN_TRACING_V2: bool = False
     LANGCHAIN_API_KEY: str = "PENDING_APPROVAL"
-    OTEL_EXPORTER_OTLP_ENDPOINT: str = "http://localhost:4317"
+    OTEL_EXPORTER_OTLP_ENDPOINT: str = "" if is_test else "http://localhost:4317"
     PLAYWRIGHT_HEADLESS: bool = False
 
     ALLOWED_ORIGINS: Union[List[str], str] = ["http://localhost:3000", "http://127.0.0.1:3000", "*"]
@@ -56,6 +60,10 @@ class Settings(BaseSettings):
             return v
         return ["http://localhost:3000", "http://127.0.0.1:3000"]
 
-    model_config = SettingsConfigDict(env_file=str(_env_path), env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=None if is_test else (".env",),
+        env_file_encoding="utf-8",
+        extra="ignore"
+    )
 
 settings = Settings()

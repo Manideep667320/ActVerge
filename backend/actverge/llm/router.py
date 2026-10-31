@@ -57,6 +57,10 @@ def get_api_key() -> str:
 
 def is_model_approved(alias: str) -> bool:
     """Checks if a valid OpenRouter API key is configured and model is mapped."""
+    if settings.ENVIRONMENT == "test" or os.environ.get("ENVIRONMENT") == "test":
+        logger.info(f"Test environment active; skipping live LLM call for {alias}.")
+        return None
+
     api_key = get_api_key()
     if not api_key or api_key == "PENDING_APPROVAL":
         return False
@@ -74,6 +78,10 @@ async def call_llm(
 
     Returns the assistant message content string, or None if the API key is not configured.
     """
+    if settings.ENVIRONMENT == "test" or os.environ.get("ENVIRONMENT") == "test":
+        logger.info(f"Test environment active; skipping live LLM call for {alias}.")
+        return None
+
     api_key = get_api_key()
     if not api_key or api_key == "PENDING_APPROVAL":
         logger.info(f"OPENROUTER_API_KEY not set; skipping LLM call for {alias}.")
@@ -125,5 +133,5 @@ async def call_llm(
         response = await litellm.acompletion(**kwargs)
         return response.choices[0].message.content
     except Exception:
-        return None
+        return False
 
