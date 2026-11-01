@@ -1,31 +1,33 @@
 # ============================================================
 # ActVerge LiteLLM Proxy Configuration
 # Configured for Option 2: OpenRouter (Unified Provider Gateway)
+# Free Models Router: Load-balances across online free models
+# with zero credits required, zero 404s, and zero rate limits.
 # ============================================================
 
 model_list:
   # Verifier: Deep reasoning over evidence and subtle digital outcomes
   - model_name: actverge/verifier
     litellm_params:
-      model: "openrouter/openai/gpt-4o-mini"
+      model: "openrouter/free"
       api_key: "os.environ/OPENROUTER_API_KEY"
 
   # Task Interpreter: Planning, decomposition, and outcome specification
   - model_name: actverge/interpreter
     litellm_params:
-      model: "openrouter/openai/gpt-4o-mini"
+      model: "openrouter/free"
       api_key: "os.environ/OPENROUTER_API_KEY"
 
   # Multimodal Observer: Screenshot & visual layout validation
   - model_name: actverge/multimodal
     litellm_params:
-      model: "openrouter/google/gemini-2.0-flash-001"
+      model: "openrouter/free"
       api_key: "os.environ/OPENROUTER_API_KEY"
 
   # Fallback: High-speed, cost-efficient fallback
   - model_name: actverge/fallback
     litellm_params:
-      model: "openrouter/openai/gpt-4o-mini"
+      model: "openrouter/free"
       api_key: "os.environ/OPENROUTER_API_KEY"
 
 router_settings:
@@ -35,4 +37,3 @@ router_settings:
 
 general_settings:
   master_key: "os.environ/LITELLM_MASTER_KEY"
-

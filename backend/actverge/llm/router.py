@@ -1,6 +1,8 @@
 """
 LiteLLM Gateway & Router Configuration.
 Configured for Option 2: OpenRouter Universal API.
+Supports the OpenRouter Free Models Router ('openrouter/free') which automatically
+load-balances across available free models without rate limiting (429) or model missing (404) errors.
 """
 import os
 import logging
@@ -19,10 +21,10 @@ FALLBACK_ALIAS = "actverge/fallback"
 
 # Fallback direct OpenRouter models if config file cannot be read
 DEFAULT_OPENROUTER_MAP = {
-    INTERPRETER_ALIAS: "openai/gpt-4o-mini",
-    VERIFIER_ALIAS: "openai/gpt-4o-mini",
-    MULTIMODAL_ALIAS: "openai/gpt-4o-mini",
-    FALLBACK_ALIAS: "openai/gpt-4o-mini",
+    INTERPRETER_ALIAS: "openrouter/free",
+    VERIFIER_ALIAS: "openrouter/free",
+    MULTIMODAL_ALIAS: "openrouter/free",
+    FALLBACK_ALIAS: "openrouter/free",
 }
 
 
@@ -45,7 +47,7 @@ def get_model_for_alias(alias: str) -> str:
             model = entry.get("litellm_params", {}).get("model", "")
             if model and model != "PENDING_USER_APPROVAL":
                 return model
-    return DEFAULT_OPENROUTER_MAP.get(alias, "openai/gpt-4o")
+    return DEFAULT_OPENROUTER_MAP.get(alias, "openrouter/free")
 
 
 get_model_or_raise = get_model_for_alias
@@ -88,7 +90,16 @@ async def call_llm(
         return None
 
     model = get_model_for_alias(alias)
-    clean_model = model.replace("openrouter/", "")
+    
+    # OpenRouter model resolution:
+    # 'openrouter/free' is a special meta-router model slug and must NOT have 'openrouter/' stripped.
+    if model == "openrouter/free":
+        clean_model = "openrouter/free"
+    elif model.startswith("openrouter/"):
+        clean_model = model[len("openrouter/"):]
+    else:
+        clean_model = model
+
     logger.info(f"Calling LLM for alias '{alias}' -> model: {clean_model}")
 
     try:
@@ -120,8 +131,9 @@ async def call_llm(
 
     try:
         import litellm
+        litellm_model = clean_model if clean_model.startswith("openrouter/") else f"openrouter/{clean_model}"
         kwargs: Dict[str, Any] = {
-            "model": f"openrouter/{clean_model}",
+            "model": litellm_model,
             "messages": messages,
             "api_key": api_key,
             "temperature": temperature,
@@ -132,6 +144,6 @@ async def call_llm(
 
         response = await litellm.acompletion(**kwargs)
         return response.choices[0].message.content
-    except Exception:
-        return False
-
+    except Exception as lite_err:
+        logger.warning(f"LiteLLM fallback failed ({lite_err})")
+        return None
