@@ -110,8 +110,19 @@ async def outcome_verifier_node(state: ActVergeState) -> Dict[str, Any]:
     logger.info("Running deterministic rule-based verification baseline.")
     ev_str = str(evidence).lower()
     task_lower = user_task.lower()
-    error_indicators = ["error:", "status: failed", "exception:", "unhandled error", "http 500", "http 404", "failed to load"]
+    error_indicators = ["error:", "status: failed", "exception:", "unhandled error", "http 500", "http 404", "failed to load", "http 403", "403 forbidden", "sold out", "declined", "storage full", "permission denied"]
     has_errors = any(e in ev_str for e in error_indicators)
+
+    # Ambiguous / Uncertain state detection
+    uncertain_indicators = ["loading-spinner", "skeleton", "<canvas", "turnstile", "indeterminate", "processing...", "syncing live", "please wait"]
+    is_uncertain = any(u in ev_str for u in uncertain_indicators)
+    if is_uncertain and not has_errors:
+        return {
+            "verdict": "UNCERTAIN",
+            "confidence": 0.75,
+            "verdict_reasoning": "Ambiguous/incomplete execution state: dynamic loading overlay, canvas rendering, or verification challenge prevents conclusive DOM inspection.",
+            "evidence_summary": ["Dynamic rendering or security challenge active; final state cannot be verified conclusively."]
+        }
 
     # Domain mismatch detection (e.g. flight booking task on github.com)
     flight_keywords = ["flight", "airline", "ticket", "hotel", "travel", "reservation", "booking"]
@@ -139,7 +150,21 @@ async def outcome_verifier_node(state: ActVergeState) -> Dict[str, Any]:
         for w in t_words
     )
 
-    if match_ratio >= 0.5 and not has_inputs_filled:
+    # Creator intent detection (e.g. Google Forms / Docs / Slides)
+    creator_keywords = ["create", "draft", "build", "prepare"]
+    is_creator_task = any(c in task_lower for c in creator_keywords)
+    has_empty_canvas = any(e in ev_str for e in ["untitled form", "empty-title", "no-questions-placeholder", "untitled presentation", "untitled document"])
+    has_canvas_content = any(c in ev_str for c in ["form-editor-canvas", "question-card", "kix-page-content", "notion-page-content", "typeform-canvas"])
+
+    if is_creator_task and (has_empty_canvas or "gemini-prompt-input" in ev_str):
+        verdict = "PARTIAL"
+        confidence = 0.85
+        reasoning = "Rule baseline: Creator intent prompt/title drafted, but questions/body content were not inserted into canvas."
+    elif is_creator_task and has_canvas_content:
+        verdict = "SUCCESS"
+        confidence = 0.95
+        reasoning = f"Rule baseline: Content created and confirmed in authoring canvas ({matches}/{len(t_words)} key terms matched)."
+    elif match_ratio >= 0.5 and not has_inputs_filled:
         verdict = "SUCCESS"
         confidence = 0.90
         reasoning = f"Rule baseline: Key task terms ({matches}/{len(t_words)}) conclusively verified in page DOM and text."

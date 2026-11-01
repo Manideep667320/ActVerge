@@ -33,7 +33,7 @@ async def run_task_job(ctx: dict, task_id: str):
             return
         user_task = task.user_task
         task.status = TaskStatus.RUNNING
-        task.updated_at = datetime.now(timezone.utc)
+        task.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
         await session.commit()
 
     await publish_event(r, task_id, "node_start", node="task_interpreter")
@@ -92,7 +92,7 @@ async def run_task_job(ctx: dict, task_id: str):
             task = res.first()
             if task:
                 task.status = TaskStatus.COMPLETE
-                task.updated_at = datetime.now(timezone.utc)
+                task.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
                 session.add(task)
 
             # Insert or update verdict
@@ -141,7 +141,7 @@ async def run_task_job(ctx: dict, task_id: str):
             task = res.first()
             if task:
                 task.status = TaskStatus.ERROR
-                task.updated_at = datetime.now(timezone.utc)
+                task.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
                 await session.commit()
         await publish_event(r, task_id, "error", data={"message": str(e)})
 

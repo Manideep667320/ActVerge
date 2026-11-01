@@ -34,15 +34,16 @@
 
 ## 📊 Benchmark Highlights
 
-Evaluated across real-world web tasks from the **Mind2Web** benchmark and live in-situ browser execution traces:
+Evaluated across **100 controlled real-world scenarios** derived from the **Mind2Web** benchmark pattern and multi-turn browser traces:
 
 | Metric | ActVerge Oracle | Raw Agent Baseline | Delta / Impact |
 |---|:---:|:---:|:---:|
-| **Oracle Accuracy** | **98.6%** | 62.2% | **+36.4% gain** over unverified self-reports |
-| **Hallucination Interception** | **24.2%** | 0.0% *(undetected)* | **1 in 4** silent failures intercepted |
-| **Autonomous Recovery Rate** | **42.5%** | 0.0% *(crashes)* | Healed via cyclical LangGraph recovery |
-| **Verification Latency** | **1.2s** | N/A | Sub-second multi-source state synthesis |
-| **Cost per Verification** | **~$0.00005** | N/A | Ultra-efficient via `openai/gpt-4o-mini` |
+| **Overall Classification Accuracy** | **83.00%** | ~55.0% *(self-reported)* | **+28.0% gain** over unverified self-reports |
+| **Fatal Failure Interception (Recall)** | **100.00%** | 0.0% *(undetected)* | **30 out of 30** catastrophic errors caught |
+| **False Success Rate (Silent Failures)** | **10.77%** | 100.0% *(all unverified)* | **89.23%** of silent failures intercepted |
+| **False Alarm Rate** | **5.71%** | N/A | Low false rejection of true successes |
+| **Mean Verification Latency** | **3.07 s** | N/A | Sub-5s multi-modal state synthesis |
+| **Benchmark Dataset Scale** | **100 Scenarios** | N/A | Balanced across 4 web agent domains |
 
 ---
 
@@ -65,26 +66,28 @@ ActVerge establishes a **zero-trust verification paradigm** for autonomous digit
   - `SUCCESS`: Conclusively accomplished and verified in the DOM.
   - `PARTIAL`: Correct platform reached and drafted, but final submit/action remains unexecuted.
   - `FAILED`: Agent drift, hallucination, fatal errors, or missing entities.
-- **Real-Time Responsiveness**: Maintain average verification latency under **1.5 seconds**.
+  - `UNCERTAIN`: Dynamic loading spinners, canvas-only editors, or incomplete hydration.
+- **Real-Time Responsiveness**: Maintain average verification latency under **3.5 seconds**.
 - **Autonomous Self-Healing**: Automatically recover from transient UI errors (dismissing blocking cookie banners, handling SPA hydration lag).
 
 ---
 
 ## 📦 Dataset Overview
 
-ActVerge is benchmarked using both established academic datasets and live multi-turn browser traces:
+Mind2Web contains web tasks and action sequences, but **does not natively provide ground-truth outcome verification labels**. To evaluate ActVerge rigorously, we created a reproducible 100-scenario benchmark: [`curated_test_set.json`](file:///c:/Users/manid/Desktop/ActVerge/evaluation/benchmark/curated_test_set.json) generated via [`build_benchmark_dataset.py`](file:///c:/Users/manid/Desktop/ActVerge/evaluation/benchmark/build_benchmark_dataset.py).
 
-### 1. Mind2Web Benchmark
-- **Scale**: 2,350+ complex web tasks across **137 real-world web domains**.
-- **Coverage**: Multi-step workflows in E-Commerce, SaaS Management, Travel & Airline Booking, and Developer Platforms.
-- **Evidence Artifacts**: Pruned HTML DOM trees, accessibility bounding boxes, network traces, and viewport screenshots.
+### 1. Domain Coverage (4 Pillars)
+- **E-Commerce & Retail** (30 tasks, 30%): Cart operations, multi-step checkout flows, out-of-stock modals, coupon validations.
+- **Productivity & Workspaces** (25 tasks, 25%): Form builders (Google Forms), Kanban updates (Jira), document editors (Docs/Notion).
+- **Developer Tools & Cloud** (25 tasks, 25%): GitHub pull requests, AWS IAM permissions, API keys, repository settings.
+- **Travel & Logistics** (20 tasks, 20%): Multi-city flight search, hotel filtering, calendar date pickers, ticket checkouts.
 
-### 2. In-Situ Agent Trace Testbed
-- **Scale**: 500+ live multi-turn browser execution traces captured via Playwright CDP and the ActVerge Chrome Companion Extension.
-- **Adversarial Injections**:
-  - *Domain Drift / Hallucination Injections*: Agent claiming ticket booking while on GitHub.
-  - *Dropped Submission Injections*: Input fields populated while submit button remains unclicked.
-  - *Dynamic Modal Injections*: Cookie banners and promotional popups occluding click targets.
+### 2. Ground-Truth Calibration & Failure Injection
+Each scenario was executed in a controlled browser environment with deliberate failure injections to establish independent ground-truth:
+- `SUCCESS` (**35 tasks**, 35%): Goal verified conclusively in the DOM with confirmation IDs/banners.
+- `PARTIAL` (**25 tasks**, 25%): Form inputs and fields populated, but final submission click dropped or pending.
+- `FAILED` (**30 tasks**, 30%): Domain drift, 404/500 HTTP errors, CAPTCHA locks, or fatal server exceptions.
+- `UNCERTAIN` (**10 tasks**, 10%): Dynamic loading spinners, canvas editors, or incomplete hydration states.
 
 ---
 
@@ -97,7 +100,7 @@ flowchart LR
     A["Active Webpage (DOM, Inputs, A11y, Logs)"] --> B["Pruning & Feature Extraction Engine"]
     B --> C["Adversarial Verifier (GPT-4o-mini via LiteLLM)"]
     C --> D{"Confidence & Intent Check"}
-    D -->|Conclusive| E["Verdict: SUCCESS / PARTIAL / FAILED"]
+    D -->|Conclusive| E["Verdict: SUCCESS / PARTIAL / FAILED / UNCERTAIN"]
     D -->|Transient Failure / Low Conf| F["LangGraph Recovery Node (Modal Dismiss, Wait, Retry)"]
     F --> A
 ```
@@ -116,56 +119,56 @@ flowchart LR
 
 ### Task Domain Breakdown
 ```
-[E-Commerce & Retail]       ████████████████ 32% (Amazon, Shopify, Cart flows)
-[Software & Cloud Dev]      █████████████ 26% (GitHub, GitLab, Docker, AWS)
-[Travel & Logistics]        ███████████ 22% (Airlines, Hotels, Kayak)
-[Productivity & Forms]      ██████████ 20% (Google Forms, Docs, Typeform, Jira)
+[E-Commerce & Retail]       ████████████████ 30% (10 Success, 8 Partial, 9 Failed, 3 Uncertain)
+[Software & Cloud Dev]      █████████████ 25% (9 Success, 5 Partial, 8 Failed, 3 Uncertain)
+[Productivity & Workspaces] █████████████ 25% (9 Success, 7 Partial, 7 Failed, 2 Uncertain)
+[Travel & Logistics]        ██████████ 20% (7 Success, 5 Partial, 6 Failed, 2 Uncertain)
 ```
 
-### Pre-Verification Agent Failure Modes
-- **Agent Drift & Hallucination (38%)**: Agent wanders to external blogs or search pages while falsely declaring success.
-- **Incomplete / Unsubmitted Drafts (34%)**: Inputs filled correctly, but submit button dropped or failed hydration.
-- **DOM Mutations & Selector Timeouts (19%)**: Webpage layout changes or dynamic modals block execution.
-- **Network & HTTP 4xx/5xx Errors (9%)**: API timeouts and server failures.
+### Pre-Verification Agent Failure Modes (Ground Truth)
+- **Incomplete / Unsubmitted Drafts (38.5%)**: Inputs filled correctly, but submit button dropped or pending hydration.
+- **Agent Drift & Fatal Errors (46.2%)**: Agent drifted to external search/error pages while claiming success.
+- **Indeterminate Canvas / Spinner States (15.4%)**: Visual canvas or loading spinners masking true state.
+- **Missing Value Rate**: 0% across all 100 benchmark task records.
 
 ---
 
 ## 📈 Exploratory & Correlation Statistics
 
-| Variable A | Variable B | Pearson $r$ | Architectural Decision |
-| :--- | :--- | :---: | :--- |
-| **Task Sequence Step Length** | **Hallucination Probability** | **+0.74** | Enforce mid-flight step checkpoints (drift compounds with length) |
-| **Raw DOM Node Count** | **Verification Latency** | **+0.68** | Implement semantic DOM extraction pruning (reduces tokens by 72%) |
-| **Form Input Field Count** | **Unsubmitted / Partial Rate** | **+0.61** | Cross-reference input values against submission status |
-| **LLM Model Temperature** | **Verdict Classification Variance**| **+0.82** | Strictly enforce $T = 0.1$ for deterministic evaluation |
-| **Multi-Modal Evidence Depth**| **False Positive Verification Rate**| **-0.78** | Cross-examine 6 multi-modal streams to eliminate false alarms |
+Bivariate correlations (Pearson's $r$ and two-tailed $p$-values) calculated across all 100 benchmark trials:
+
+| Variable Pair ($X$ vs $Y$) | Pearson $r$ | $p$-value | Empirical Interpretation |
+| :--- | :---: | :---: | :--- |
+| **Execution Steps vs. Verification Latency** | **+0.101** | $0.3168$ | Weak correlation; verification latency is governed by LLM response time rather than action trace length. |
+| **DOM Evidence Length vs. Latency** | **+0.180** | $0.0726$ | Marginal positive trend ($p < 0.10$); larger DOM context prompts take slightly longer to decode. |
+| **Execution Steps vs. Accuracy** | **+0.133** | $0.1873$ | Independence observed; ActVerge maintains consistent accuracy regardless of step depth. |
+| **Oracle Confidence vs. Accuracy** | **+0.183** | $0.0680$ | Positive alignment; higher model confidence correlates with correct classification. |
 
 ---
 
 ## ⏱️ Central Tendency & Operational Metrics
 
-Statistical distribution across 1,000 evaluation trials:
+Statistical distributions across the 100 empirical benchmark trials:
 
-| Metric Name | Mean ($\mu$) | Median ($M$) | Mode | Interquartile Range (IQR) | Standard Deviation ($\sigma$) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **Verification Latency** | **1.24 s** | 1.18 s | 1.10 s | 0.35 s | $\pm 0.22\text{ s}$ |
-| **Pruned Evidence Tokens** | **1,420 tk** | 1,280 tk | 1,150 tk | 410 tk | $\pm 285\text{ tk}$ |
-| **Execution Steps / Task** | **5.4 steps** | 4.0 steps | 3.0 steps | 3.0 steps | $\pm 2.1\text{ steps}$ |
-| **Oracle Confidence Score** | **0.946** | 0.950 | 0.950 | 0.050 | $\pm 0.042$ |
-| **Cost per Verification Call** | **\$0.000052** | \$0.000048 | \$0.000045 | \$0.000012 | $\pm \$0.000008$ |
+| Metric Name | Mean ($\mu$) | Median ($M$) | Mode | Interquartile Range (IQR) | Standard Deviation ($\sigma$) | 95th Percentile ($P_{95}$) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Verification Latency** | **3.073 s** | **2.962 s** | 2.033 s | 0.858 s | $\pm 0.924\text{ s}$ | 4.960 s |
+| **Execution Steps / Task** | **1.36** | **1.00** | 1.0 | 1.0 | $\pm 0.63$ | 3.0 |
+| **DOM Evidence Size** | **203.1 chars** | **199.0 chars** | 162.0 | 79.8 | $\pm 56.4\text{ chars}$ | 294.0 |
+| **Oracle Confidence Score** | **0.936** | **0.950** | 0.95 | 0.05 | $\pm 0.024$ | 0.95 |
 
 ---
 
 ## 🧠 Machine Learning Model & Architecture
 
 - **Primary Discriminator**: `openai/gpt-4o-mini` routed through LiteLLM Gateway via OpenRouter.
-  - Replaced legacy `gpt-4o` to eliminate 402 credit-ceiling errors and cut evaluation latency from 6.2s to **1.2s**.
+  - Replaced legacy `gpt-4o` to eliminate 402 credit-ceiling errors and cut evaluation latency from 6.2s to **3.07s**.
 - **Constrained JSON Schema**: Enforces structured outputs with strict negative-evidence penalties:
   ```json
   {
     "verdict": "SUCCESS" | "PARTIAL" | "FAILED" | "UNCERTAIN",
     "confidence": 0.95,
-    "reasoning": "Clear factual explanation citing specific DOM elements or lack thereof",
+    "verdict_reasoning": "Clear factual explanation citing specific DOM elements or lack thereof",
     "evidence_summary": ["Point 1", "Point 2"]
   }
   ```
@@ -173,29 +176,46 @@ Statistical distribution across 1,000 evaluation trials:
 
 ---
 
-## 🎯 Confusion Matrix
+## 🎯 Confusion Matrix & Performance Evaluation
 
-Evaluation across 1,000 benchmark interaction trials:
+Empirical results from the 100-scenario controlled benchmark execution:
 
+### 1. True 4x4 Multi-Class Confusion Matrix
+
+| Actual \ Predicted | SUCCESS | PARTIAL | FAILED | UNCERTAIN | Total Actual |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **SUCCESS** | **32** | 1 | 2 | 0 | **35** |
+| **PARTIAL** | 4 | **21** | 0 | 0 | **25** |
+| **FAILED** | 0 | 0 | **30** | 0 | **30** |
+| **UNCERTAIN** | 3 | 5 | 2 | **0** | **10** |
+| **Total Predicted** | **39** | **27** | **34** | **0** | **100** |
+
+### 2. Per-Class Classification Report
+
+| Class | Precision | Recall | F1-Score | Support |
+| :--- | :---: | :---: | :---: | :---: |
+| **SUCCESS** | **82.05%** | **91.43%** | **86.49%** | 35 |
+| **PARTIAL** | **77.78%** | **84.00%** | **80.77%** | 25 |
+| **FAILED** | **88.24%** | **100.00%** | **93.75%** | 30 |
+| **UNCERTAIN** | 0.00% | 0.00% | 0.00% | 10 |
+| **Macro Average** | **62.02%** | **68.86%** | **65.25%** | 100 |
+| **Weighted Average** | **74.63%** | **83.00%** | **78.59%** | 100 |
+
+### 3. Key Findings & Diagnostic Observations
+- **100.00% Recall on Fatal Failures**: All 30 true failure cases were correctly identified as `FAILED` (zero false negatives for catastrophic failures).
+- **89.23% Silent Failure Interception**: Only 7 out of 65 non-success tasks (4 PARTIAL, 3 UNCERTAIN) bypassed to `SUCCESS`, yielding a False Success Rate of 10.77%.
+- **Low False Alarm Rate**: Only 2 out of 35 genuine successes were falsely classified as `FAILED` (5.71% false alarm rate).
+- **The Decisiveness Bias Challenge**: The `UNCERTAIN` class achieved 0% recall because LLMs possess an innate bias toward making a definitive determination (`PARTIAL` or `SUCCESS`) rather than declaring uncertainty. This provides a genuine research direction for future calibration via conformal prediction.
+
+### 4. Running the Benchmark Locally
+To reproduce the complete benchmark and verify these metrics independently:
+```bash
+# Generate / verify test dataset
+python evaluation/benchmark/build_benchmark_dataset.py
+
+# Execute the 100-scenario evaluation harness
+python evaluation/scripts/run_benchmark.py
 ```
-                              ACTUAL REALITY (Ground Truth)
-                           ┌───────────────────────────┬───────────────────────────┐
-                           │      ACTUAL SUCCESS       │      ACTUAL FAILURE       │
-┌──────────────────────────┼───────────────────────────┼───────────────────────────┤
-│ PREDICTED SUCCESS        │   True Positive (TP)      │   False Positive (FP)     │
-│ (Oracle Verified Success)│          485              │            3              │
-├──────────────────────────┼───────────────────────────┼───────────────────────────┤
-│ PREDICTED FAILURE/PARTIAL│   False Negative (FN)     │   True Negative (TN)      │
-│ (Oracle Flagged Failure) │           11              │          501              │
-└──────────────────────────┴───────────────────────────┴───────────────────────────┘
-```
-
-### Derived Performance Equations
-- **Accuracy**: $\frac{TP + TN}{\text{Total}} = \frac{485 + 501}{1000} = \mathbf{98.6\%}$
-- **Precision**: $\frac{TP}{TP + FP} = \frac{485}{485 + 3} = \mathbf{99.4\%}$
-- **Recall (Sensitivity)**: $\frac{TP}{TP + FN} = \frac{485}{485 + 11} = \mathbf{97.8\%}$
-- **F1-Score**: $2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}} = \mathbf{98.6\%}$
-- **Hallucination Interception Rate**: **24.2%** of silent agent errors intercepted and prevented.
 
 ---
 

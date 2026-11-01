@@ -4,7 +4,7 @@ from sqlmodel import SQLModel, Field, Column, JSON
 import uuid
 
 def utc_now() -> datetime:
-    return datetime.now(timezone.utc)
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 class EvidencePackage(SQLModel, table=True):
     __tablename__ = "evidence_packages"

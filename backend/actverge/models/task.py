@@ -4,7 +4,7 @@ from sqlmodel import SQLModel, Field
 import uuid
 
 def utc_now() -> datetime:
-    return datetime.now(timezone.utc)
+    return datetime.now(timezone.utc).replace(tzinfo=None)
 
 class TaskStatus(str, Enum):
     QUEUED = "queued"

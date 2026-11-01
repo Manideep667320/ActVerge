@@ -98,7 +98,7 @@ async def get_task_verdict(task_id: str, session: AsyncSession = Depends(get_ses
             evidence_summary=[],
             recovery_attempted=False,
             escalated=False,
-            created_at=datetime.now(timezone.utc),
+            created_at=datetime.now(timezone.utc).replace(tzinfo=None),
         )
     return verdict
 
@@ -256,10 +256,12 @@ async def get_task_state(task_id: str, session: AsyncSession = Depends(get_sessi
 @router.get("/{task_id}/stream")
 async def stream_task_events(task_id: str):
     async def event_generator() -> AsyncGenerator[str, None]:
-        r = redis.from_url(settings.REDIS_URL)
-        pubsub = r.pubsub()
-        await pubsub.subscribe(f"actverge:task:{task_id}")
+        r = None
+        pubsub = None
         try:
+            r = redis.from_url(settings.REDIS_URL)
+            pubsub = r.pubsub()
+            await pubsub.subscribe(f"actverge:task:{task_id}")
             # Yield initial connection event
             yield json.dumps({"type": "connected", "task_id": task_id})
             while True:
@@ -267,11 +269,20 @@ async def stream_task_events(task_id: str):
                 if message and message["type"] == "message":
                     yield message["data"].decode("utf-8")
         except Exception as e:
-            logger.warning(f"SSE stream closed for {task_id}: {e}")
+            logger.warning(f"SSE stream closed or unavailable for {task_id}: {e}")
+            yield json.dumps({"type": "stream_notice", "task_id": task_id, "detail": str(e)})
         finally:
-            await pubsub.unsubscribe(f"actverge:task:{task_id}")
-            await pubsub.close()
-            await r.close()
+            if pubsub:
+                try:
+                    await pubsub.unsubscribe(f"actverge:task:{task_id}")
+                    await pubsub.close()
+                except Exception:
+                    pass
+            if r:
+                try:
+                    await r.close()
+                except Exception:
+                    pass
 
     return EventSourceResponse(event_generator())
 
@@ -418,12 +429,12 @@ async def verify_external_state(
         ],
         recovery_attempted=False,
         escalated=False,
-        created_at=datetime.now(timezone.utc)
+        created_at=datetime.now(timezone.utc).replace(tzinfo=None)
     )
     session.add(verdict_record)
 
     task.status = TaskStatus.COMPLETE
-    task.updated_at = datetime.now(timezone.utc)
+    task.updated_at = datetime.now(timezone.utc).replace(tzinfo=None)
     session.add(task)
 
     if db_available:

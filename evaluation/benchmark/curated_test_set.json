@@ -1,0 +1,3782 @@
+[
+  {
+    "task_id": "ecom_001",
+    "domain": "E-Commerce",
+    "user_task": "Add wireless noise-canceling headphones to cart on Amazon",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://amazon.com/cart",
+      "page_title": "Amazon.com Shopping Cart",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://amazon.com/cart",
+      "page_title": "Amazon.com Shopping Cart",
+      "dom_summary": "<main><div class='cart-item'><h3>Sony WH-1000XM5 Wireless Headphones</h3><span class='price'>$348.00</span><span class='badge'>Added to Cart</span><span class='cart-count'>Cart: 1</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://amazon.com/cart"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Amazon.com Shopping Cart"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://amazon.com"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#twotabsearchtextbox",
+        "value": "Sony WH-1000XM5"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "target": "input#add-to-cart-button"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_002",
+    "domain": "E-Commerce",
+    "user_task": "Purchase 65-inch OLED 4K Smart TV on BestBuy",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://bestbuy.com/checkout/confirm",
+      "page_title": "Order Confirmation - Best Buy",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://bestbuy.com/checkout/confirm",
+      "page_title": "Order Confirmation - Best Buy",
+      "dom_summary": "<main class='order-confirmation'><h1>Thank You for Your Order!</h1><p class='order-id'>Order #BBY-98234-X</p><p class='item-title'>LG 65-inch Class C3 Series OLED 4K UHD Smart webOS TV</p><span class='status'>Status: Confirmed & Paid</span></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://bestbuy.com/checkout/confirm"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Order Confirmation - Best Buy"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://bestbuy.com"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button.checkout"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "target": "button.place-order"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_003",
+    "domain": "E-Commerce",
+    "user_task": "Filter men's running shoes size 10 under $80 on Nike",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://nike.com/w/mens-shoes-size-10",
+      "page_title": "Men's Running Shoes - Nike",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://nike.com/w/mens-shoes-size-10",
+      "page_title": "Men's Running Shoes - Nike",
+      "dom_summary": "<main><div class='filter-chips'><span class='chip'>Size: 10</span><span class='chip'>Price: Under $80</span></div><div class='product-grid'><div class='product-card'><h4>Nike Revolution 7</h4><span class='price'>$65.00</span></div></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://nike.com/w/mens-shoes-size-10"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Men's Running Shoes - Nike"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://nike.com"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "input#filter-size-10"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "target": "input#filter-price-80"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_004",
+    "domain": "E-Commerce",
+    "user_task": "Apply discount promo code SAVE20 on Shopify store checkout",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://brandstore.com/checkout",
+      "page_title": "Checkout - BrandStore",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://brandstore.com/checkout",
+      "page_title": "Checkout - BrandStore",
+      "dom_summary": "<div class='checkout-summary'><span class='promo-applied'>Promo code SAVE20 applied (-20%)</span><span class='discount-amount'>-$24.00</span><span class='total-price'>Total: $96.00</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://brandstore.com/checkout"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Checkout - BrandStore"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#discount-code",
+        "value": "SAVE20"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#apply-discount"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_005",
+    "domain": "E-Commerce",
+    "user_task": "Add mechanical gaming keyboard to wishlist on Newegg",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://newegg.com/wishlist",
+      "page_title": "My Saved Wishlist - Newegg",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://newegg.com/wishlist",
+      "page_title": "My Saved Wishlist - Newegg",
+      "dom_summary": "<main><div class='wishlist-container'><h2>Saved Items (1)</h2><div class='item'><span>Corsair K70 RGB Mechanical Keyboard</span><span class='tag'>Added to Wishlist</span></div></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://newegg.com/wishlist"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "My Saved Wishlist - Newegg"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://newegg.com"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button.add-to-wishlist"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_006",
+    "domain": "E-Commerce",
+    "user_task": "Select 1-year product protection warranty plan on Walmart",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://walmart.com/cart",
+      "page_title": "Walmart Shopping Cart",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://walmart.com/cart",
+      "page_title": "Walmart Shopping Cart",
+      "dom_summary": "<div class='cart-tray'><div class='cart-item'><span>Apple iPad 10th Gen</span><div class='addon-row'><span class='badge'>Allstate 2-Year Protection Plan Included</span><span class='addon-price'>+$44.00</span></div></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://walmart.com/cart"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Walmart Shopping Cart"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "input#allstate-protection-plan"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_007",
+    "domain": "E-Commerce",
+    "user_task": "Search organic fair-trade coffee beans on Target",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://target.com/s?searchTerm=organic+coffee",
+      "page_title": "Organic Coffee : Target",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://target.com/s?searchTerm=organic+coffee",
+      "page_title": "Organic Coffee : Target",
+      "dom_summary": "<main id='main-content'><h1>Results for 'organic fair-trade coffee beans' (42 items)</h1><div class='product-card'><span>Good & Gather Organic Whole Bean Coffee</span><span class='price'>$8.99</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://target.com/s?searchTerm=organic+coffee"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Organic Coffee : Target"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://target.com"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#search",
+        "value": "organic fair-trade coffee beans"
+      },
+      {
+        "step": 3,
+        "action": "press_key",
+        "value": "Enter"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_008",
+    "domain": "E-Commerce",
+    "user_task": "Subscribe to monthly cat food delivery on Chewy",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://chewy.com/autoship",
+      "page_title": "Manage Autoship - Chewy",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://chewy.com/autoship",
+      "page_title": "Manage Autoship - Chewy",
+      "dom_summary": "<main class='autoship-mgmt'><h2>Autoship Active</h2><p class='frequency'>Every 4 weeks</p><span class='item-name'>Purina ONE Tender Selects Cat Food (16 lb)</span><span class='status'>Next order ships in 28 days</span></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://chewy.com/autoship"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Manage Autoship - Chewy"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#subscribe-autoship"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#confirm-subscription"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_009",
+    "domain": "E-Commerce",
+    "user_task": "Change shipping method to Express Overnight on eBay",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://ebay.com/checkout",
+      "page_title": "eBay Checkout",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://ebay.com/checkout",
+      "page_title": "eBay Checkout",
+      "dom_summary": "<div class='shipping-options'><label class='selected'><input type='radio' checked='' name='shipping'/><span class='title'>FedEx Express Overnight</span><span class='price'>$24.99</span><span class='delivery-date'>Delivery Tomorrow by 10:30 AM</span></label></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://ebay.com/checkout"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "eBay Checkout"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "input[value='express-overnight']"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_010",
+    "domain": "E-Commerce",
+    "user_task": "Redeem $50 electronic gift card balance on Sephora",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://sephora.com/checkout/payment",
+      "page_title": "Payment Options - Sephora",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://sephora.com/checkout/payment",
+      "page_title": "Payment Options - Sephora",
+      "dom_summary": "<div class='payment-methods'><div class='gift-card-applied'><span class='label'>Gift Card (Ending in 4092)</span><span class='balance-used'>-$50.00 Applied</span><span class='remaining-balance'>Order Balance Remaining: $12.50</span></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://sephora.com/checkout/payment"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Payment Options - Sephora"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#gift-card-num",
+        "value": "600492810492"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#apply-gc"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_011",
+    "domain": "E-Commerce",
+    "user_task": "Search for ergonomic office chair under $200 on Amazon and display listings",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_search",
+    "outcome_spec": {
+      "expected_url": "https://amazon.com",
+      "page_title": "Amazon.com. Spend less. Smile more.",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://amazon.com",
+      "page_title": "Amazon.com. Spend less. Smile more.",
+      "dom_summary": "<main><input type='text' id='twotabsearchtextbox' name='q' value='ergonomic office chair under $200'/><button type='submit' id='nav-search-submit-button'>Go</button></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://amazon.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Amazon.com. Spend less. Smile more."
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://amazon.com"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#twotabsearchtextbox",
+        "value": "ergonomic office chair under $200"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_012",
+    "domain": "E-Commerce",
+    "user_task": "Place order for electric toothbrush on Target with shipping address",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_checkout_draft",
+    "outcome_spec": {
+      "expected_url": "https://target.com/checkout",
+      "page_title": "Checkout : Target",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://target.com/checkout",
+      "page_title": "Checkout : Target",
+      "dom_summary": "<form class='checkout-form'><input type='text' name='street' value='742 Evergreen Terrace'/><input type='text' name='city' value='Springfield'/><input type='text' name='zip' value='97477'/><button id='placeOrderBtn' type='button' class='btn-primary' disabled=''>Review Order</button></form>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://target.com/checkout"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Checkout : Target"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[name='street']",
+        "value": "742 Evergreen Terrace"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input[name='city']",
+        "value": "Springfield"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_013",
+    "domain": "E-Commerce",
+    "user_task": "Select shoe size 11 and add to cart on Zappos",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unclicked_add_to_cart",
+    "outcome_spec": {
+      "expected_url": "https://zappos.com/product/109283",
+      "page_title": "Brooks Ghost 15 - Zappos",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://zappos.com/product/109283",
+      "page_title": "Brooks Ghost 15 - Zappos",
+      "dom_summary": "<div class='product-options'><select id='size-select'><option value='11' selected=''>Size 11 (In Stock)</option></select><button id='addToCart' class='btn'>Add to Cart</button><span class='cart-status'>Cart: 0 items</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://zappos.com/product/109283"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Brooks Ghost 15 - Zappos"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "select",
+        "target": "select#size-select",
+        "value": "11"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_014",
+    "domain": "E-Commerce",
+    "user_task": "Enter coupon discount code SAVE15 on ASOS checkout",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unapplied_coupon_input",
+    "outcome_spec": {
+      "expected_url": "https://asos.com/bag",
+      "page_title": "Shopping Bag | ASOS",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://asos.com/bag",
+      "page_title": "Shopping Bag | ASOS",
+      "dom_summary": "<div class='promo-wrapper'><input type='text' id='promo-code-input' value='SAVE15'/><button id='apply-promo' type='button'>Apply Code</button><span class='discount-notice'>Code entered. Click Apply to validate.</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://asos.com/bag"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Shopping Bag | ASOS"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#promo-code-input",
+        "value": "SAVE15"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_015",
+    "domain": "E-Commerce",
+    "user_task": "Set delivery address to work location on DoorDash",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsaved_address_modal",
+    "outcome_spec": {
+      "expected_url": "https://doordash.com/address",
+      "page_title": "Delivery Address - DoorDash",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://doordash.com/address",
+      "page_title": "Delivery Address - DoorDash",
+      "dom_summary": "<div class='address-modal'><input type='text' id='address-input' value='500 5th Avenue, Suite 1200'/><input type='text' id='apt-input' value='Floor 12'/><button id='save-address-btn'>Save and Continue</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://doordash.com/address"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Delivery Address - DoorDash"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#address-input",
+        "value": "500 5th Avenue, Suite 1200"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_016",
+    "domain": "E-Commerce",
+    "user_task": "Configure custom gaming PC specifications on CyberPowerPC",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unfinalized_configuration",
+    "outcome_spec": {
+      "expected_url": "https://cyberpowerpc.com/configurator/pc",
+      "page_title": "Custom Gaming PC Configurator",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://cyberpowerpc.com/configurator/pc",
+      "page_title": "Custom Gaming PC Configurator",
+      "dom_summary": "<div class='spec-builder'><div class='selected-specs'><span>CPU: Intel i7-14700K</span><span>RAM: 32GB DDR5</span></div><button id='save-config-btn' class='action-btn'>Save Configuration to Cart</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://cyberpowerpc.com/configurator/pc"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Custom Gaming PC Configurator"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "input#cpu-i7-14700k"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_017",
+    "domain": "E-Commerce",
+    "user_task": "Fill customer return request form on Nordstrom",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_return_form",
+    "outcome_spec": {
+      "expected_url": "https://nordstrom.com/returns",
+      "page_title": "Order Returns - Nordstrom",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://nordstrom.com/returns",
+      "page_title": "Order Returns - Nordstrom",
+      "dom_summary": "<form id='return-form'><select name='reason'><option selected='' value='size_too_small'>Item too small</option></select><textarea name='notes'>Please exchange for size Medium.</textarea><button type='submit' id='submit-return'>Submit Return Request</button></form>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://nordstrom.com/returns"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Order Returns - Nordstrom"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "select",
+        "target": "select[name='reason']",
+        "value": "size_too_small"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_018",
+    "domain": "E-Commerce",
+    "user_task": "Select pickup in-store option for Apple MacBook on BestBuy",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "checkout_uncommenced",
+    "outcome_spec": {
+      "expected_url": "https://bestbuy.com/cart",
+      "page_title": "Best Buy Cart",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://bestbuy.com/cart",
+      "page_title": "Best Buy Cart",
+      "dom_summary": "<div class='fulfillment-selector'><label><input type='radio' name='fulfillment' checked='' value='store-pickup'/><span>Pick up in Store: Downtown Seattle (Ready in 1 hour)</span></label><button class='btn-checkout'>Proceed to Checkout</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://bestbuy.com/cart"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Best Buy Cart"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "input[value='store-pickup']"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_019",
+    "domain": "E-Commerce",
+    "user_task": "Purchase mechanical gaming keyboard on Amazon",
+    "ground_truth": "FAILED",
+    "failure_variant": "agent_drift_domain_mismatch",
+    "outcome_spec": {
+      "expected_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "dom_summary": "<main data-url='https://github.com'><h1>Where the world builds software</h1><p>Millions of developers and companies build, ship, and maintain software on GitHub.</p></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://github.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "GitHub: Let\u2019s build from here"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://github.com"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_020",
+    "domain": "E-Commerce",
+    "user_task": "Buy Nike Air Jordan 1 Retro sneakers on Nike Store",
+    "ground_truth": "FAILED",
+    "failure_variant": "out_of_stock_fatal_error",
+    "outcome_spec": {
+      "expected_url": "https://nike.com/product/air-jordan-1-out-of-stock",
+      "page_title": "Product Not Available - Nike",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://nike.com/product/air-jordan-1-out-of-stock",
+      "page_title": "Product Not Available - Nike",
+      "dom_summary": "<main class='error-page'><div class='error-card'><h2>Sold Out / Out of Stock</h2><p>The requested product style is no longer available.</p><button class='btn-home'>Back to Homepage</button></div></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://nike.com/product/air-jordan-1-out-of-stock"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Product Not Available - Nike"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://nike.com/product/air-jordan-1"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_021",
+    "domain": "E-Commerce",
+    "user_task": "Order espresso machine on Target",
+    "ground_truth": "FAILED",
+    "failure_variant": "http_404_not_found",
+    "outcome_spec": {
+      "expected_url": "https://target.com/product/delonghi-404",
+      "page_title": "404 Page Not Found : Target",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://target.com/product/delonghi-404",
+      "page_title": "404 Page Not Found : Target",
+      "dom_summary": "<main><h1>We're sorry! The page you were looking for doesn't exist. (HTTP 404)</h1><a href='/'>Return to Target Home</a></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://target.com/product/delonghi-404"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "404 Page Not Found : Target"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://target.com/product/delonghi-404"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_022",
+    "domain": "E-Commerce",
+    "user_task": "Pay credit card installment on Chase eCommerce checkout",
+    "ground_truth": "FAILED",
+    "failure_variant": "payment_declined_error",
+    "outcome_spec": {
+      "expected_url": "https://chase.com/payment-error",
+      "page_title": "Payment Declined - Chase",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://chase.com/payment-error",
+      "page_title": "Payment Declined - Chase",
+      "dom_summary": "<div class='error-banner alert-danger'><h3>Transaction Declined: Insufficient Funds (Error Code: 51)</h3><p>Please contact your financial institution or select an alternative payment method.</p></div>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://chase.com/payment-error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Payment Declined - Chase"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#submit-payment"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_023",
+    "domain": "E-Commerce",
+    "user_task": "Search for 4K projector on B&H Photo Video",
+    "ground_truth": "FAILED",
+    "failure_variant": "zero_search_results",
+    "outcome_spec": {
+      "expected_url": "https://bhphotovideo.com/search",
+      "page_title": "Search Results - B&H",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://bhphotovideo.com/search",
+      "page_title": "Search Results - B&H",
+      "dom_summary": "<main><div class='no-results'><h3>Zero results found for '4k projector xyz-99999-invalid'</h3><p>Check your spelling or try more general keywords.</p></div></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://bhphotovideo.com/search"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Search Results - B&H"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#search",
+        "value": "4k projector xyz-99999-invalid"
+      },
+      {
+        "step": 2,
+        "action": "press_key",
+        "value": "Enter"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_024",
+    "domain": "E-Commerce",
+    "user_task": "Add ergonomic standing desk to cart on Wayfair",
+    "ground_truth": "FAILED",
+    "failure_variant": "hallucination_blog_drift",
+    "outcome_spec": {
+      "expected_url": "https://wikipedia.org",
+      "page_title": "Wikipedia, the free encyclopedia",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://wikipedia.org",
+      "page_title": "Wikipedia, the free encyclopedia",
+      "dom_summary": "<main id='content'><h1>Standing desk - Wikipedia</h1><p>A standing desk or stand-up desk is a desk conceived for writing or reading while standing up.</p></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://wikipedia.org"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Wikipedia, the free encyclopedia"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://wikipedia.org/wiki/Standing_desk"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_025",
+    "domain": "E-Commerce",
+    "user_task": "Reserve Apple iPhone 15 Pro at local Apple Store",
+    "ground_truth": "FAILED",
+    "failure_variant": "http_403_access_denied",
+    "outcome_spec": {
+      "expected_url": "https://apple.com/shop/reserve/error",
+      "page_title": "Access Denied - Apple",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://apple.com/shop/reserve/error",
+      "page_title": "Access Denied - Apple",
+      "dom_summary": "<main><h1>Access Denied (HTTP 403 Forbidden)</h1><p>You do not have permission to access this server or reservations are currently locked.</p></main>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://apple.com/shop/reserve/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Access Denied - Apple"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://apple.com/shop/reserve"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_026",
+    "domain": "E-Commerce",
+    "user_task": "Checkout vintage watch on Etsy",
+    "ground_truth": "FAILED",
+    "failure_variant": "race_condition_item_removed",
+    "outcome_spec": {
+      "expected_url": "https://etsy.com/cart/item-removed",
+      "page_title": "Cart Notice - Etsy",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://etsy.com/cart/item-removed",
+      "page_title": "Cart Notice - Etsy",
+      "dom_summary": "<div class='notification-bar alert-warning'><span>Sorry, this one-of-a-kind item was purchased by another shopper while in your cart.</span></div>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://etsy.com/cart/item-removed"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Cart Notice - Etsy"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.checkout"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_027",
+    "domain": "E-Commerce",
+    "user_task": "Apply store credit voucher on Overstock",
+    "ground_truth": "FAILED",
+    "failure_variant": "expired_voucher_error",
+    "outcome_spec": {
+      "expected_url": "https://overstock.com/voucher/error",
+      "page_title": "Invalid Voucher - Overstock",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://overstock.com/voucher/error",
+      "page_title": "Invalid Voucher - Overstock",
+      "dom_summary": "<div class='error-box'><h3>Error: Voucher EXPIRED_OR_INVALID</h3><p>The code entered has already been redeemed or is expired.</p></div>",
+      "console_logs": [
+        "Error: Action failed"
+      ],
+      "network_logs": [
+        {
+          "status": 400,
+          "url": "https://overstock.com/voucher/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Invalid Voucher - Overstock"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#voucher",
+        "value": "CREDIT50EXPIRED"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#apply"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_028",
+    "domain": "E-Commerce",
+    "user_task": "Finalize payment for luxury watch on Chrono24",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "infinite_loading_spinner",
+    "outcome_spec": {
+      "expected_url": "https://chrono24.com/checkout/processing",
+      "page_title": "Processing Order...",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://chrono24.com/checkout/processing",
+      "page_title": "Processing Order...",
+      "dom_summary": "<div class='loading-spinner-overlay'><div class='spinner'></div><p>Contacting merchant gateway... Please do not refresh this page.</p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://chrono24.com/checkout/processing"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Processing Order..."
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#pay-now"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_029",
+    "domain": "E-Commerce",
+    "user_task": "View 3D product model preview for sofa on IKEA",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "opaque_webgl_canvas_rendering",
+    "outcome_spec": {
+      "expected_url": "https://ikea.com/product/sofa-3d",
+      "page_title": "IKEA 3D Viewer",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://ikea.com/product/sofa-3d",
+      "page_title": "IKEA 3D Viewer",
+      "dom_summary": "<main><canvas id='webgl-3d-canvas' width='1280' height='800'></canvas><div class='canvas-controls'><span>Rotate: Drag | Zoom: Pinch</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://ikea.com/product/sofa-3d"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "IKEA 3D Viewer"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#launch-3d"
+      }
+    ]
+  },
+  {
+    "task_id": "ecom_030",
+    "domain": "E-Commerce",
+    "user_task": "Verify flash deal countdown timer on AliExpress",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "skeleton_screen_hydration_lag",
+    "outcome_spec": {
+      "expected_url": "https://aliexpress.com/deals",
+      "page_title": "AliExpress Flash Deals",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://aliexpress.com/deals",
+      "page_title": "AliExpress Flash Deals",
+      "dom_summary": "<div class='deals-wrapper'><div class='skeleton-placeholder'></div><div class='skeleton-card'></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://aliexpress.com/deals"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "AliExpress Flash Deals"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://aliexpress.com/deals"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_001",
+    "domain": "Productivity",
+    "user_task": "Create simple Google Form with customer satisfaction question",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/forms/d/1aB9x/edit",
+      "page_title": "Customer Feedback Form - Google Forms",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/forms/d/1aB9x/edit",
+      "page_title": "Customer Feedback Form - Google Forms",
+      "dom_summary": "<div class='form-editor-canvas'><h2>Customer Feedback Survey</h2><div class='question-card' data-type='multiple_choice'><h3>How satisfied were you with our service?</h3><div class='option'>1 - Very Unsatisfied</div><div class='option'>2 - Neutral</div><div class='option'>3 - Very Satisfied</div></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/forms/d/1aB9x/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Customer Feedback Form - Google Forms"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://forms.new"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "div[aria-label='Form title']",
+        "value": "Customer Feedback Survey"
+      },
+      {
+        "step": 3,
+        "action": "fill",
+        "target": "textarea.question-title",
+        "value": "How satisfied were you with our service?"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_002",
+    "domain": "Productivity",
+    "user_task": "Draft quarterly product update summary document in Google Docs",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/document/d/99zQ/edit",
+      "page_title": "Q3 Product Update - Google Docs",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/document/d/99zQ/edit",
+      "page_title": "Q3 Product Update - Google Docs",
+      "dom_summary": "<div class='kix-appview-editor'><div class='kix-page-content'><h1 class='doc-title'>Q3 Product Roadmap & Milestone Summary</h1><p>In Q3, the engineering team shipped 42 features, reduced API response latency by 35%, and onboarded 12 enterprise clients.</p></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/document/d/99zQ/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Q3 Product Update - Google Docs"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://docs.new"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "div.kix-page",
+        "value": "Q3 Product Roadmap & Milestone Summary\nIn Q3..."
+      }
+    ]
+  },
+  {
+    "task_id": "prod_003",
+    "domain": "Productivity",
+    "user_task": "Create high-priority bug ticket for login failure in Jira",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://company.atlassian.net/browse/SEC-104",
+      "page_title": "[SEC-104] Authentication 2FA SMS code timeout - Jira",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://company.atlassian.net/browse/SEC-104",
+      "page_title": "[SEC-104] Authentication 2FA SMS code timeout - Jira",
+      "dom_summary": "<div class='issue-view'><h1 id='summary-val'>[SEC-104] Authentication 2FA SMS code timeout</h1><div class='issue-details'><span class='priority-high'>High Priority</span><span class='status-badge'>Status: Open</span><div class='desc'>SMS verification codes expire before delivery on T-Mobile.</div></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://company.atlassian.net/browse/SEC-104"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "[SEC-104] Authentication 2FA SMS code timeout - Jira"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#create-issue"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#summary",
+        "value": "[SEC-104] Authentication 2FA SMS code timeout"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "target": "button#create-submit"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_004",
+    "domain": "Productivity",
+    "user_task": "Build 3-question event registration survey in Typeform",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://admin.typeform.com/form/t8923/edit",
+      "page_title": "Tech Summit 2026 Registration - Typeform",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://admin.typeform.com/form/t8923/edit",
+      "page_title": "Tech Summit 2026 Registration - Typeform",
+      "dom_summary": "<div class='typeform-canvas'><div class='step-card'><span>1. What is your full legal name?</span></div><div class='step-card'><span>2. What is your organization or company?</span></div><div class='step-card'><span>3. Do you require dietary accommodations?</span></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://admin.typeform.com/form/t8923/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Tech Summit 2026 Registration - Typeform"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.add-question"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_005",
+    "domain": "Productivity",
+    "user_task": "Submit travel expense reimbursement form in Workday",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://myworkday.com/expense/confirm",
+      "page_title": "Expense Report Submitted - Workday",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://myworkday.com/expense/confirm",
+      "page_title": "Expense Report Submitted - Workday",
+      "dom_summary": "<main class='confirmation-container'><h1>Expense Report EXP-88912 Submitted</h1><span class='status'>Approval Status: Pending Manager Review</span><p class='amount'>Total Amount: $450.00 USD</p></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://myworkday.com/expense/confirm"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Expense Report Submitted - Workday"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#expense-amount",
+        "value": "450.00"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#submit-expense"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_006",
+    "domain": "Productivity",
+    "user_task": "Create new meeting notes page titled Weekly Sprint Retro in Notion",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://notion.so/workspace/weekly-sprint-retro-102",
+      "page_title": "Weekly Sprint Retro - Notion",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://notion.so/workspace/weekly-sprint-retro-102",
+      "page_title": "Weekly Sprint Retro - Notion",
+      "dom_summary": "<div class='notion-page-content'><h1 class='notion-title'>Weekly Sprint Retro</h1><div class='notion-block'><h3>What went well?</h3><p>Fast sprint delivery, all blockers cleared early.</p></div><div class='notion-block'><h3>What needs improvement?</h3><p>Earlier design reviews for complex UX.</p></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://notion.so/workspace/weekly-sprint-retro-102"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Weekly Sprint Retro - Notion"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "div[placeholder='Untitled']",
+        "value": "Weekly Sprint Retro"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_007",
+    "domain": "Productivity",
+    "user_task": "Send meeting invitation email in Google Workspace Gmail",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://mail.google.com/mail/u/0/#sent",
+      "page_title": "Sent Mail - Gmail",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://mail.google.com/mail/u/0/#sent",
+      "page_title": "Sent Mail - Gmail",
+      "dom_summary": "<div class='sent-notification-bar'><span>Message sent.</span><a href='#'>View message</a></div><div class='mail-list-item'><span class='recipient'>engineering-team@company.com</span><span class='subject'>Architecture Review Sync Tomorrow @ 2 PM</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://mail.google.com/mail/u/0/#sent"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Sent Mail - Gmail"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.compose"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "div.send-btn"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_008",
+    "domain": "Productivity",
+    "user_task": "Add new employee record to BambooHR directory",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://company.bamboohr.com/employees/profile/992",
+      "page_title": "Jane Doe - BambooHR Profile",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://company.bamboohr.com/employees/profile/992",
+      "page_title": "Jane Doe - BambooHR Profile",
+      "dom_summary": "<div class='profile-header'><h1>Jane Doe</h1><span class='job-title'>Senior Software Engineer</span><span class='dept'>Cloud Platforms</span><span class='status-active'>Status: Active Employee</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://company.bamboohr.com/employees/profile/992"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Jane Doe - BambooHR Profile"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#save-employee"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_009",
+    "domain": "Productivity",
+    "user_task": "Export weekly sales spreadsheet to CSV on Airtable",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://airtable.com/app1234/tblSales",
+      "page_title": "Sales Pipeline - Airtable",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://airtable.com/app1234/tblSales",
+      "page_title": "Sales Pipeline - Airtable",
+      "dom_summary": "<div class='toast-notification alert-success'><span>CSV export complete: Sales_Pipeline_Q3_2026.csv downloaded.</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://airtable.com/app1234/tblSales"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Sales Pipeline - Airtable"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.view-menu"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button.download-csv"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_010",
+    "domain": "Productivity",
+    "user_task": "Tell Gemini in Google Forms to prepare a 3-question student survey",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "ai_prompt_typed_canvas_empty",
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/forms/d/1xYz/edit",
+      "page_title": "Untitled form - Google Forms",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/forms/d/1xYz/edit",
+      "page_title": "Untitled form - Google Forms",
+      "dom_summary": "<div class='gemini-ai-sidebar'><textarea id='gemini-prompt-input' value='Prepare a 3-question survey about student homework habits and study hours'/><button class='btn-create-prompt'>Generate Questions</button></div><div class='form-canvas'><h2 class='empty-title'>Untitled form</h2><p class='no-questions-placeholder'>No questions added yet. Insert from Gemini sidebar or click + to add.</p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/forms/d/1xYz/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Untitled form - Google Forms"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://forms.new"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "textarea#gemini-prompt-input",
+        "value": "Prepare a 3-question survey about student homework habits"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_011",
+    "domain": "Productivity",
+    "user_task": "Fill out and submit employee feedback form on Google Forms",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_form_response",
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/forms/d/e/1FAIpQLSc/viewform",
+      "page_title": "Annual Employee Engagement Survey",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/forms/d/e/1FAIpQLSc/viewform",
+      "page_title": "Annual Employee Engagement Survey",
+      "dom_summary": "<form id='mG61Hd'><input type='text' name='entry.1029' value='Everything is great with my team'/><input type='radio' name='entry.4820' checked='' value='5'/><button type='submit' class='submit-btn'>Submit</button></form><div class='unsubmitted-notice'>Response has not been submitted yet.</div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSc/viewform"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Annual Employee Engagement Survey"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[name='entry.1029']",
+        "value": "Everything is great with my team"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_012",
+    "domain": "Productivity",
+    "user_task": "Draft customer outreach email in Gmail compose window",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsent_draft_email",
+    "outcome_spec": {
+      "expected_url": "https://mail.google.com/mail/u/0/#inbox",
+      "page_title": "Inbox (12) - Gmail",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://mail.google.com/mail/u/0/#inbox",
+      "page_title": "Inbox (12) - Gmail",
+      "dom_summary": "<div class='compose-window'><input name='to' value='client@enterprise.com'/><input name='subject' value='ActVerge Enterprise Partnership Proposal'/><div class='editable-body'>Dear John,\nI am writing to share our latest benchmark results...</div><button class='send-button'>Send</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://mail.google.com/mail/u/0/#inbox"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Inbox (12) - Gmail"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.compose"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input[name='to']",
+        "value": "client@enterprise.com"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_013",
+    "domain": "Productivity",
+    "user_task": "Fill Jira issue creation form for UI responsiveness bug",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unclicked_modal_submission",
+    "outcome_spec": {
+      "expected_url": "https://company.atlassian.net/jira/your-work",
+      "page_title": "Create Issue - Jira",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://company.atlassian.net/jira/your-work",
+      "page_title": "Create Issue - Jira",
+      "dom_summary": "<div class='modal-dialog'><input id='summary' value='Mobile navigation hamburger menu overlaps logo'/><textarea id='description'>Observed on iPhone 15 Pro viewport...</textarea><button id='create-issue-submit' class='btn-primary'>Create</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://company.atlassian.net/jira/your-work"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Create Issue - Jira"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#summary",
+        "value": "Mobile navigation hamburger menu overlaps logo"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_014",
+    "domain": "Productivity",
+    "user_task": "Enter student grades spreadsheet data in Google Sheets",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "uncommitted_sheet_cell_edit",
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/spreadsheets/d/4829/edit",
+      "page_title": "CS101 Final Grades - Google Sheets",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/spreadsheets/d/4829/edit",
+      "page_title": "CS101 Final Grades - Google Sheets",
+      "dom_summary": "<div class='waffle-cell-editor'><input id='cell-input' value='94.5'/><span class='cell-location'>Cell C12</span></div><div class='save-status'>Saving changes in memory... Press Enter to commit.</div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/spreadsheets/d/4829/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "CS101 Final Grades - Google Sheets"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#cell-input",
+        "value": "94.5"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_015",
+    "domain": "Productivity",
+    "user_task": "Prepare presentation outline in Google Slides",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unpopulated_body_canvas",
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/presentation/d/9021/edit",
+      "page_title": "Untitled presentation - Google Slides",
+      "intent_type": "creator"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/presentation/d/9021/edit",
+      "page_title": "Untitled presentation - Google Slides",
+      "dom_summary": "<div class='slide-canvas'><div class='title-box'><input value='ActVerge: Autonomous Agent Verification Framework'/></div><div class='subtitle-box'>Click to add subtitle</div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://docs.google.com/presentation/d/9021/edit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Untitled presentation - Google Slides"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "div.title-box input",
+        "value": "ActVerge: Autonomous Agent Verification Framework"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_016",
+    "domain": "Productivity",
+    "user_task": "Configure team access permissions on Slack channel settings",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unconfirmed_settings_save",
+    "outcome_spec": {
+      "expected_url": "https://app.slack.com/client/T123/C456",
+      "page_title": "Channel Settings - Slack",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://app.slack.com/client/T123/C456",
+      "page_title": "Channel Settings - Slack",
+      "dom_summary": "<div class='slack-modal'><label><input type='checkbox' checked='' id='private-toggle'/><span>Make channel private</span></label><button id='save-settings-btn' class='btn'>Save Changes</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://app.slack.com/client/T123/C456"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Channel Settings - Slack"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "input#private-toggle"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_017",
+    "domain": "Productivity",
+    "user_task": "Prepare simple Google Form for team lunch order",
+    "ground_truth": "FAILED",
+    "failure_variant": "agent_drift_domain_mismatch",
+    "outcome_spec": {
+      "expected_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "dom_summary": "<main><title>GitHub</title><h1>Where software is built</h1><p>GitHub is the home for developer tools.</p></main>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://github.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "GitHub: Let\u2019s build from here"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://github.com"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_018",
+    "domain": "Productivity",
+    "user_task": "Submit customer contract on DocuSign",
+    "ground_truth": "FAILED",
+    "failure_variant": "session_timeout_fatal",
+    "outcome_spec": {
+      "expected_url": "https://docusign.net/error/session-timeout",
+      "page_title": "Session Expired - DocuSign",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://docusign.net/error/session-timeout",
+      "page_title": "Session Expired - DocuSign",
+      "dom_summary": "<div class='error-envelope'><h2>Session Timed Out (Security Error)</h2><p>Your authentication token has expired. Please re-authenticate to sign document.</p></div>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://docusign.net/error/session-timeout"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Session Expired - DocuSign"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://docusign.net"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_019",
+    "domain": "Productivity",
+    "user_task": "Create Google Sheet for company annual budget",
+    "ground_truth": "FAILED",
+    "failure_variant": "storage_quota_exceeded",
+    "outcome_spec": {
+      "expected_url": "https://docs.google.com/spreadsheets/u/0/quota-exceeded",
+      "page_title": "Google Drive - Storage Full",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://docs.google.com/spreadsheets/u/0/quota-exceeded",
+      "page_title": "Google Drive - Storage Full",
+      "dom_summary": "<main><h2>Drive Storage Limit Reached</h2><p>You cannot create or upload new files until you free up space or upgrade storage quota.</p></main>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://docs.google.com/spreadsheets/u/0/quota-exceeded"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Google Drive - Storage Full"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://sheets.new"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_020",
+    "domain": "Productivity",
+    "user_task": "Export quarterly performance report on Salesforce",
+    "ground_truth": "FAILED",
+    "failure_variant": "rbac_permission_denied",
+    "outcome_spec": {
+      "expected_url": "https://salesforce.com/lightning/error/403",
+      "page_title": "Insufficient Privileges - Salesforce",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://salesforce.com/lightning/error/403",
+      "page_title": "Insufficient Privileges - Salesforce",
+      "dom_summary": "<div class='alert-error'><h1>Insufficient Privileges</h1><p>You do not have the necessary profile permissions to export reports in this organization.</p></div>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://salesforce.com/lightning/error/403"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Insufficient Privileges - Salesforce"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#export-report"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_021",
+    "domain": "Productivity",
+    "user_task": "Schedule all-hands meeting on Microsoft Outlook Calendar",
+    "ground_truth": "FAILED",
+    "failure_variant": "resource_reservation_conflict",
+    "outcome_spec": {
+      "expected_url": "https://outlook.office.com/calendar/conflict",
+      "page_title": "Room Conflict - Outlook",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://outlook.office.com/calendar/conflict",
+      "page_title": "Room Conflict - Outlook",
+      "dom_summary": "<div class='conflict-banner'><h3>Scheduling Conflict Detected</h3><p>Selected room 'Grand Boardroom' is already reserved by Executive Team at this time.</p></div>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://outlook.office.com/calendar/conflict"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Room Conflict - Outlook"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#send-invite"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_022",
+    "domain": "Productivity",
+    "user_task": "Update customer address record in HubSpot CRM",
+    "ground_truth": "FAILED",
+    "failure_variant": "hallucination_informational_drift",
+    "outcome_spec": {
+      "expected_url": "https://wikipedia.org",
+      "page_title": "Customer relationship management - Wikipedia",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://wikipedia.org",
+      "page_title": "Customer relationship management - Wikipedia",
+      "dom_summary": "<main><h1>Customer relationship management</h1><p>Customer relationship management (CRM) is a process in which a business administers interactions with customers.</p></main>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://wikipedia.org"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Customer relationship management - Wikipedia"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://wikipedia.org/wiki/Customer_relationship_management"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_023",
+    "domain": "Productivity",
+    "user_task": "Submit anonymous company feedback survey on SurveyMonkey",
+    "ground_truth": "FAILED",
+    "failure_variant": "survey_closed_error",
+    "outcome_spec": {
+      "expected_url": "https://surveymonkey.com/r/closed",
+      "page_title": "Survey Closed - SurveyMonkey",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://surveymonkey.com/r/closed",
+      "page_title": "Survey Closed - SurveyMonkey",
+      "dom_summary": "<main class='closed-container'><h2>This survey is now closed.</h2><p>The survey creator is no longer accepting new responses.</p></main>",
+      "console_logs": [
+        "Error: Task terminated with fatal error"
+      ],
+      "network_logs": [
+        {
+          "status": 403,
+          "url": "https://surveymonkey.com/r/closed"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Survey Closed - SurveyMonkey"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://surveymonkey.com/r/company-survey"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_024",
+    "domain": "Productivity",
+    "user_task": "Generate AI project timeline chart on Miro whiteboard",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "uninspectable_canvas_board",
+    "outcome_spec": {
+      "expected_url": "https://miro.com/app/board/uX892",
+      "page_title": "Project Roadmap - Miro",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://miro.com/app/board/uX892",
+      "page_title": "Project Roadmap - Miro",
+      "dom_summary": "<div class='miro-board-wrapper'><canvas id='board-canvas' width='1920' height='1080'></canvas><div class='status-overlay'>Syncing live collaborator updates...</div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://miro.com/app/board/uX892"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Project Roadmap - Miro"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.generate-ai-timeline"
+      }
+    ]
+  },
+  {
+    "task_id": "prod_025",
+    "domain": "Productivity",
+    "user_task": "Execute database schema migration on Supabase Studio",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "asynchronous_ddl_pending",
+    "outcome_spec": {
+      "expected_url": "https://supabase.com/dashboard/project/db/migrate",
+      "page_title": "Running Migrations...",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://supabase.com/dashboard/project/db/migrate",
+      "page_title": "Running Migrations...",
+      "dom_summary": "<div class='migration-progress'><h3>Applying migration 20261031_init.sql</h3><div class='indeterminate-progress-bar'></div><p>Executing DDL statements... Please wait.</p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://supabase.com/dashboard/project/db/migrate"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Running Migrations..."
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.run-migration"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_001",
+    "domain": "Developer Tools",
+    "user_task": "Find Playwright Python installation command on official documentation",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://playwright.dev/python/docs/intro",
+      "page_title": "Installation | Playwright Python",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://playwright.dev/python/docs/intro",
+      "page_title": "Installation | Playwright Python",
+      "dom_summary": "<main class='doc-content'><h1>Installation</h1><p>Get started by installing Playwright with pip:</p><pre><code>pip install pytest-playwright\nplaywright install</code></pre></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://playwright.dev/python/docs/intro"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Installation | Playwright Python"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://playwright.dev/python"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "a[href='/python/docs/intro']"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_002",
+    "domain": "Developer Tools",
+    "user_task": "Inspect latest commit on main branch for ActVerge repository",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://github.com/Manideep667320/ActVerge",
+      "page_title": "GitHub - Manideep667320/ActVerge",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/Manideep667320/ActVerge",
+      "page_title": "GitHub - Manideep667320/ActVerge",
+      "dom_summary": "<main><div class='repo-header'><h1>Manideep667320 / ActVerge</h1></div><div class='commit-tease'><span class='commit-title'>fix(backend): use NullPool and engine disposal in tests</span><span class='commit-sha'>3a26948</span><span class='branch-name'>Branch: main</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com/Manideep667320/ActVerge"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "GitHub - Manideep667320/ActVerge"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://github.com/Manideep667320/ActVerge"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_003",
+    "domain": "Developer Tools",
+    "user_task": "Search official Redis Docker image tags on Docker Hub",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://hub.docker.com/_/redis/tags",
+      "page_title": "redis - Docker Hub Tags",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://hub.docker.com/_/redis/tags",
+      "page_title": "redis - Docker Hub Tags",
+      "dom_summary": "<div class='tag-list'><div class='tag-row'><h3>redis:7.4-alpine</h3><span class='badge'>Official Image</span><span class='digest'>sha256:88942b10</span></div><div class='tag-row'><h3>redis:7.2-bookworm</h3><span class='badge'>Official Image</span></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://hub.docker.com/_/redis/tags"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "redis - Docker Hub Tags"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://hub.docker.com/_/redis/tags"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_004",
+    "domain": "Developer Tools",
+    "user_task": "Create GitHub pull request titled Add Multi-Modal Verifier",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://github.com/organization/repo/pull/42",
+      "page_title": "Add Multi-Modal Verifier by agent \u00b7 Pull Request #42",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/organization/repo/pull/42",
+      "page_title": "Add Multi-Modal Verifier by agent \u00b7 Pull Request #42",
+      "dom_summary": "<div class='pr-view'><h1 class='pr-title'>Add Multi-Modal Verifier <span class='pr-number'>#42</span></h1><span class='pr-state-open'>Open</span><p>Merge 4 commits into <code>main</code> from <code>feature/verifier</code></p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com/organization/repo/pull/42"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Add Multi-Modal Verifier by agent \u00b7 Pull Request #42"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#create-pull-request"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_005",
+    "domain": "Developer Tools",
+    "user_task": "Star the langchain-ai/langgraph repository on GitHub",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://github.com/langchain-ai/langgraph",
+      "page_title": "GitHub - langchain-ai/langgraph",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/langchain-ai/langgraph",
+      "page_title": "GitHub - langchain-ai/langgraph",
+      "dom_summary": "<div class='repo-actions'><button class='btn-starred' aria-label='Unstar this repository'><span class='starred-label'>Starred</span><span class='count'>14.8k</span></button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com/langchain-ai/langgraph"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "GitHub - langchain-ai/langgraph"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.starred"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_006",
+    "domain": "Developer Tools",
+    "user_task": "Search for FastAPI CORS middleware example on StackOverflow",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://stackoverflow.com/questions/65634702",
+      "page_title": "How to enable CORS in FastAPI? - Stack Overflow",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://stackoverflow.com/questions/65634702",
+      "page_title": "How to enable CORS in FastAPI? - Stack Overflow",
+      "dom_summary": "<main id='mainbar'><h1>How to enable CORS in FastAPI?</h1><div class='accepted-answer'><span class='accepted-badge'>Accepted Answer (Score: 245)</span><pre><code>from fastapi.middleware.cors import CORSMiddleware\napp.add_middleware(CORSMiddleware, allow_origins=['*'])</code></pre></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://stackoverflow.com/questions/65634702"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "How to enable CORS in FastAPI? - Stack Overflow"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[name='q']",
+        "value": "FastAPI CORS middleware example"
+      },
+      {
+        "step": 2,
+        "action": "press_key",
+        "value": "Enter"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_007",
+    "domain": "Developer Tools",
+    "user_task": "Generate personal access token on GitHub developer settings",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://github.com/settings/tokens",
+      "page_title": "Personal Access Tokens - GitHub",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/settings/tokens",
+      "page_title": "Personal Access Tokens - GitHub",
+      "dom_summary": "<div class='token-created-banner alert-success'><h3>Token successfully generated!</h3><p>Make sure to copy your personal access token now. You won't be able to see it again.</p><code>ghp_984128941941914921491429</code></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com/settings/tokens"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Personal Access Tokens - GitHub"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#generate-token"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_008",
+    "domain": "Developer Tools",
+    "user_task": "Verify AWS S3 bucket creation in AWS Management Console",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://s3.console.aws.amazon.com/s3/buckets/actverge-artifacts",
+      "page_title": "Amazon S3 - Buckets - actverge-artifacts",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://s3.console.aws.amazon.com/s3/buckets/actverge-artifacts",
+      "page_title": "Amazon S3 - Buckets - actverge-artifacts",
+      "dom_summary": "<main><div class='bucket-overview'><h1>actverge-artifacts</h1><span class='region'>Region: us-east-1</span><span class='access'>Access: Bucket and objects not public</span><span class='status'>Status: Active</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://s3.console.aws.amazon.com/s3/buckets/actverge-artifacts"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Amazon S3 - Buckets - actverge-artifacts"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#create-bucket"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_009",
+    "domain": "Developer Tools",
+    "user_task": "Find latest released version of Pydantic on PyPI",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://pypi.org/project/pydantic",
+      "page_title": "pydantic \u00b7 PyPI",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://pypi.org/project/pydantic",
+      "page_title": "pydantic \u00b7 PyPI",
+      "dom_summary": "<main><div class='package-header'><h1>pydantic 2.9.2</h1><p class='summary'>Data validation using Python type hints.</p><span class='pip-command'>pip install pydantic</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://pypi.org/project/pydantic"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "pydantic \u00b7 PyPI"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://pypi.org/project/pydantic"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_010",
+    "domain": "Developer Tools",
+    "user_task": "Search for high-performance python async database drivers on GitHub",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_search_query",
+    "outcome_spec": {
+      "expected_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com",
+      "page_title": "GitHub: Let\u2019s build from here",
+      "dom_summary": "<header><input type='text' name='q' value='high-performance python async database drivers'/><div class='search-suggestions'><span>Search across all of GitHub</span></div></header>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "GitHub: Let\u2019s build from here"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[name='q']",
+        "value": "high-performance python async database drivers"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_011",
+    "domain": "Developer Tools",
+    "user_task": "Open new issue on repository reporting memory leak",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_issue_draft",
+    "outcome_spec": {
+      "expected_url": "https://github.com/organization/repo/issues/new",
+      "page_title": "New Issue \u00b7 organization/repo",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/organization/repo/issues/new",
+      "page_title": "New Issue \u00b7 organization/repo",
+      "dom_summary": "<form class='issue-form'><input id='issue_title' value='Memory leak in connection pool during concurrent stress'/><textarea id='issue_body'>Steps to reproduce:\n1. Run load test with 500 workers...</textarea><button type='submit' class='btn-primary'>Submit new issue</button></form>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://github.com/organization/repo/issues/new"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "New Issue \u00b7 organization/repo"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#issue_title",
+        "value": "Memory leak in connection pool"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_012",
+    "domain": "Developer Tools",
+    "user_task": "Configure webhook endpoint URL in Stripe developer dashboard",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unconfirmed_webhook_save",
+    "outcome_spec": {
+      "expected_url": "https://dashboard.stripe.com/test/webhooks/create",
+      "page_title": "Add a webhook endpoint - Stripe",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://dashboard.stripe.com/test/webhooks/create",
+      "page_title": "Add a webhook endpoint - Stripe",
+      "dom_summary": "<div class='webhook-modal'><input id='endpoint-url' value='https://api.actverge.dev/webhooks/stripe'/><div class='events-selected'><span>2 events selected: payment_intent.succeeded, charge.refunded</span></div><button id='save-webhook'>Add endpoint</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://dashboard.stripe.com/test/webhooks/create"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Add a webhook endpoint - Stripe"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#endpoint-url",
+        "value": "https://api.actverge.dev/webhooks/stripe"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_013",
+    "domain": "Developer Tools",
+    "user_task": "Fork repository to personal account on GitLab",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "untriggered_fork_action",
+    "outcome_spec": {
+      "expected_url": "https://gitlab.com/project/group/forks/new",
+      "page_title": "Fork project \u00b7 GitLab",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://gitlab.com/project/group/forks/new",
+      "page_title": "Fork project \u00b7 GitLab",
+      "dom_summary": "<div class='fork-destination'><select id='namespace'><option value='user-manideep' selected=''>Manideep Masna (@user-manideep)</option></select><button id='confirm-fork-btn'>Fork project</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://gitlab.com/project/group/forks/new"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Fork project \u00b7 GitLab"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "select",
+        "target": "select#namespace",
+        "value": "user-manideep"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_014",
+    "domain": "Developer Tools",
+    "user_task": "Select environment variables file in Vercel project deployment",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "uncommitted_env_variable",
+    "outcome_spec": {
+      "expected_url": "https://vercel.com/dashboard/project/settings/environment-variables",
+      "page_title": "Environment Variables - Vercel",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://vercel.com/dashboard/project/settings/environment-variables",
+      "page_title": "Environment Variables - Vercel",
+      "dom_summary": "<div class='env-form'><input placeholder='KEY' value='DATABASE_URL'/><input placeholder='VALUE' value='postgresql+asyncpg://...'/><button class='btn-add'>Save</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://vercel.com/dashboard/project/settings/environment-variables"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Environment Variables - Vercel"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[placeholder='KEY']",
+        "value": "DATABASE_URL"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_015",
+    "domain": "Developer Tools",
+    "user_task": "Search for Python AsyncIO tutorials on GitHub",
+    "ground_truth": "FAILED",
+    "failure_variant": "agent_drift_domain_mismatch",
+    "outcome_spec": {
+      "expected_url": "https://kayak.com/flights",
+      "page_title": "Search Flights - KAYAK",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://kayak.com/flights",
+      "page_title": "Search Flights - KAYAK",
+      "dom_summary": "<main><h1>Find cheap flight tickets from New York to London</h1><span class='fare'>$480 roundtrip</span></main>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://kayak.com/flights"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Search Flights - KAYAK"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://kayak.com"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_016",
+    "domain": "Developer Tools",
+    "user_task": "View internal documentation repository on GitHub",
+    "ground_truth": "FAILED",
+    "failure_variant": "http_404_not_found",
+    "outcome_spec": {
+      "expected_url": "https://github.com/company/internal-secret-repo",
+      "page_title": "Page not found \u00b7 GitHub \u00b7 GitHub",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://github.com/company/internal-secret-repo",
+      "page_title": "Page not found \u00b7 GitHub \u00b7 GitHub",
+      "dom_summary": "<main id='content'><h1>404</h1><p>This is not the web page you are looking for.</p><a href='/'>Find your way home</a></main>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://github.com/company/internal-secret-repo"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Page not found \u00b7 GitHub \u00b7 GitHub"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://github.com/company/internal-secret-repo"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_017",
+    "domain": "Developer Tools",
+    "user_task": "Deploy Docker container to Kubernetes cluster on GKE",
+    "ground_truth": "FAILED",
+    "failure_variant": "kubernetes_crash_loop_backoff",
+    "outcome_spec": {
+      "expected_url": "https://console.cloud.google.com/kubernetes/deploy/error",
+      "page_title": "Kubernetes Error - Cloud Console",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://console.cloud.google.com/kubernetes/deploy/error",
+      "page_title": "Kubernetes Error - Cloud Console",
+      "dom_summary": "<div class='alert-card alert-error'><h3>Deployment Failed: CrashLoopBackOff</h3><p>Back-off 5m0s restarting failed container: OOMKilled (Exit Code 137).</p></div>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://console.cloud.google.com/kubernetes/deploy/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Kubernetes Error - Cloud Console"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button.deploy"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_018",
+    "domain": "Developer Tools",
+    "user_task": "Query GitHub REST API for repository contributors",
+    "ground_truth": "FAILED",
+    "failure_variant": "rate_limit_exceeded_error",
+    "outcome_spec": {
+      "expected_url": "https://api.github.com/rate_limit",
+      "page_title": "API Rate Limit Exceeded",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://api.github.com/rate_limit",
+      "page_title": "API Rate Limit Exceeded",
+      "dom_summary": "<pre>{'message': 'API rate limit exceeded for client IP. Maximum 60 requests per hour allowed for unauthenticated access.'}</pre>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://api.github.com/rate_limit"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "API Rate Limit Exceeded"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://api.github.com/repos/org/repo/contributors"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_019",
+    "domain": "Developer Tools",
+    "user_task": "Clone private repository using SSH key on Bitbucket",
+    "ground_truth": "FAILED",
+    "failure_variant": "ssh_key_permission_denied",
+    "outcome_spec": {
+      "expected_url": "https://bitbucket.org/account/ssh/denied",
+      "page_title": "Access Denied - Bitbucket",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://bitbucket.org/account/ssh/denied",
+      "page_title": "Access Denied - Bitbucket",
+      "dom_summary": "<div class='error-box'><h2>Permission denied (publickey).</h2><p>Could not read from remote repository. Verify SSH public key credentials.</p></div>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://bitbucket.org/account/ssh/denied"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Access Denied - Bitbucket"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#clone-repo"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_020",
+    "domain": "Developer Tools",
+    "user_task": "Publish npm package to public registry",
+    "ground_truth": "FAILED",
+    "failure_variant": "npm_version_conflict_403",
+    "outcome_spec": {
+      "expected_url": "https://npmjs.com/package/publish/error",
+      "page_title": "Publish Error - npm",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://npmjs.com/package/publish/error",
+      "page_title": "Publish Error - npm",
+      "dom_summary": "<div class='error-log'><code>npm error code E403\nnpm error 403 Forbidden - PUT https://registry.npmjs.org/pkg - You cannot publish over the previously published versions: 1.0.0.</code></div>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://npmjs.com/package/publish/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Publish Error - npm"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#publish"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_021",
+    "domain": "Developer Tools",
+    "user_task": "Connect MongoDB Atlas cluster via Cloud connection string",
+    "ground_truth": "FAILED",
+    "failure_variant": "ip_whitelist_security_block",
+    "outcome_spec": {
+      "expected_url": "https://cloud.mongodb.com/cluster/whitelist-error",
+      "page_title": "IP Whitelist Error - MongoDB Atlas",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://cloud.mongodb.com/cluster/whitelist-error",
+      "page_title": "IP Whitelist Error - MongoDB Atlas",
+      "dom_summary": "<div class='alert-box'><h3>Connection refused: IP Address Not Whitelisted</h3><p>Your current client IP (192.0.2.1) is not authorized in Network Access security rules.</p></div>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://cloud.mongodb.com/cluster/whitelist-error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "IP Whitelist Error - MongoDB Atlas"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#test-connection"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_022",
+    "domain": "Developer Tools",
+    "user_task": "Inspect Travis CI automated build logs for Pull Request",
+    "ground_truth": "FAILED",
+    "failure_variant": "ci_build_fatal_error",
+    "outcome_spec": {
+      "expected_url": "https://travis-ci.com/org/repo/builds/992",
+      "page_title": "Build #992 Errored - Travis CI",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://travis-ci.com/org/repo/builds/992",
+      "page_title": "Build #992 Errored - Travis CI",
+      "dom_summary": "<div class='build-status status-errored'><h1>Build #992 Errored</h1><span class='exit-code'>Command terminated with exit code 2 (SyntaxError in migration.py).</span></div>",
+      "console_logs": [
+        "Fatal build/execution error"
+      ],
+      "network_logs": [
+        {
+          "status": 404,
+          "url": "https://travis-ci.com/org/repo/builds/992"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Build #992 Errored - Travis CI"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://travis-ci.com/org/repo/builds/992"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_023",
+    "domain": "Developer Tools",
+    "user_task": "Inspect interactive Grafana system metrics dashboard",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "unparsed_html5_canvas_telemetry",
+    "outcome_spec": {
+      "expected_url": "https://grafana.internal/d/system-metrics",
+      "page_title": "Grafana - System Metrics",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://grafana.internal/d/system-metrics",
+      "page_title": "Grafana - System Metrics",
+      "dom_summary": "<div class='grafana-dashboard'><canvas class='u-over' width='800' height='300'></canvas><span class='refresh-badge'>Auto-refresh: 5s</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://grafana.internal/d/system-metrics"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Grafana - System Metrics"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://grafana.internal/d/system-metrics"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_024",
+    "domain": "Developer Tools",
+    "user_task": "Authenticate Single Sign-On via Okta IdP redirect",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "intermediate_oauth_redirect",
+    "outcome_spec": {
+      "expected_url": "https://auth.company.okta.com/oauth2/v1/authorize",
+      "page_title": "Authenticating...",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://auth.company.okta.com/oauth2/v1/authorize",
+      "page_title": "Authenticating...",
+      "dom_summary": "<div class='auth-redirect'><p>Waiting for SAML 2.0 assertions... Browser will redirect automatically.</p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://auth.company.okta.com/oauth2/v1/authorize"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Authenticating..."
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#sso-login"
+      }
+    ]
+  },
+  {
+    "task_id": "dev_025",
+    "domain": "Developer Tools",
+    "user_task": "Trigger automated database backup snapshot on CockroachDB Cloud",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "long_running_async_job",
+    "outcome_spec": {
+      "expected_url": "https://cockroachlabs.cloud/cluster/backup/status",
+      "page_title": "Backup Job Status",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://cockroachlabs.cloud/cluster/backup/status",
+      "page_title": "Backup Job Status",
+      "dom_summary": "<div class='job-container'><h3>Snapshot Job #BK-4921 in progress</h3><span class='progress-label'>38% completed (24.1 GB transferred)</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://cockroachlabs.cloud/cluster/backup/status"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Backup Job Status"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#create-snapshot"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_001",
+    "domain": "Travel & Search",
+    "user_task": "Search non-stop flights from New York to London under $500 on Kayak",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://kayak.com/flights/NYC-LON",
+      "page_title": "Cheap Flights, New York to London - KAYAK",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://kayak.com/flights/NYC-LON",
+      "page_title": "Cheap Flights, New York to London - KAYAK",
+      "dom_summary": "<main class='flight-results'><h1>NYC to LON Flights</h1><div class='flight-card'><span class='airline'>Virgin Atlantic (Non-stop)</span><span class='price'>$480 roundtrip</span><span class='status'>Available for Booking</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://kayak.com/flights/NYC-LON"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Cheap Flights, New York to London - KAYAK"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://kayak.com/flights"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input[placeholder='From?']",
+        "value": "New York (NYC)"
+      },
+      {
+        "step": 3,
+        "action": "click",
+        "target": "button[aria-label='Search flights']"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_002",
+    "domain": "Travel & Search",
+    "user_task": "Reserve queen room at Hilton Downtown for 3 nights on Booking.com",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://booking.com/confirmation/hilton-queen",
+      "page_title": "Booking Confirmation - Booking.com",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://booking.com/confirmation/hilton-queen",
+      "page_title": "Booking Confirmation - Booking.com",
+      "dom_summary": "<main class='reservation-confirmed'><h1>Your reservation is confirmed!</h1><p class='res-id'>Confirmation Number: 4920.194.021</p><p class='hotel-title'>Hilton Garden Inn Seattle Downtown</p><span class='dates'>Check-in: Nov 12 - Check-out: Nov 15</span></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://booking.com/confirmation/hilton-queen"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Booking Confirmation - Booking.com"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#confirm-reservation"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_003",
+    "domain": "Travel & Search",
+    "user_task": "Check today's local weather forecast and temperature in Tokyo",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://weather.com/weather/today/l/Tokyo",
+      "page_title": "Tokyo, Japan Weather Forecast - The Weather Channel",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://weather.com/weather/today/l/Tokyo",
+      "page_title": "Tokyo, Japan Weather Forecast - The Weather Channel",
+      "dom_summary": "<div class='today-weather'><h1>Tokyo, Tokyo, Japan Weather</h1><span class='current-temp'>68\u00b0F</span><p class='conditions'>Sunny & Clear</p><span class='humidity'>Humidity: 48%</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://weather.com/weather/today/l/Tokyo"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Tokyo, Japan Weather Forecast - The Weather Channel"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://weather.com"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#LocationSearch",
+        "value": "Tokyo"
+      },
+      {
+        "step": 3,
+        "action": "press_key",
+        "value": "Enter"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_004",
+    "domain": "Travel & Search",
+    "user_task": "Book standard sedan car rental at SFO airport on Hertz",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://hertz.com/rentacar/reservation/review",
+      "page_title": "Reservation Confirmed - Hertz",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://hertz.com/rentacar/reservation/review",
+      "page_title": "Reservation Confirmed - Hertz",
+      "dom_summary": "<div class='rental-summary'><h2>Reservation #H89234 Confirmed</h2><span>Vehicle: Toyota Camry or similar (Standard Sedan)</span><span class='pickup'>Pick-up: San Francisco International Airport (SFO)</span><span class='total'>Total: $184.50</span></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://hertz.com/rentacar/reservation/review"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Reservation Confirmed - Hertz"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#submit-rental"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_005",
+    "domain": "Travel & Search",
+    "user_task": "Check Amtrak train schedule from Boston South Station to NYC",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://amtrak.com/train-schedules",
+      "page_title": "Train Schedules & Fares - Amtrak",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://amtrak.com/train-schedules",
+      "page_title": "Train Schedules & Fares - Amtrak",
+      "dom_summary": "<main><div class='train-result-card'><span class='train-name'>Acela 2151</span><span class='departure'>Depart: 07:15 AM BOS</span><span class='arrival'>Arrive: 10:55 AM NYP</span><span class='fare'>$128.00 Coach</span></div></main>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://amtrak.com/train-schedules"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Train Schedules & Fares - Amtrak"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#origin",
+        "value": "Boston (BOS)"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#find-trains"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_006",
+    "domain": "Travel & Search",
+    "user_task": "Find pet-friendly cabin rental in Lake Tahoe on Airbnb",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://airbnb.com/s/Lake-Tahoe/homes",
+      "page_title": "Lake Tahoe Cabins - Airbnb",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://airbnb.com/s/Lake-Tahoe/homes",
+      "page_title": "Lake Tahoe Cabins - Airbnb",
+      "dom_summary": "<div class='search-results-grid'><h1>Places to stay in Lake Tahoe (Pet-friendly)</h1><div class='listing-card'><h3>Cozy Tahoe Pine Chalet</h3><span class='rating'>4.96 (124 reviews)</span><span class='price'>$215 / night</span></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://airbnb.com/s/Lake-Tahoe/homes"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Lake Tahoe Cabins - Airbnb"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#filter-pets"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button#apply-filters"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_007",
+    "domain": "Travel & Search",
+    "user_task": "Search Google Flights for roundtrip weekend getaway to Miami",
+    "ground_truth": "SUCCESS",
+    "failure_variant": null,
+    "outcome_spec": {
+      "expected_url": "https://google.com/travel/flights/search",
+      "page_title": "Flights to Miami (MIA) - Google Flights",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://google.com/travel/flights/search",
+      "page_title": "Flights to Miami (MIA) - Google Flights",
+      "dom_summary": "<div class='flight-results-list'><h2>Best departing flights</h2><div class='itinerary-card'><span>American Airlines (Nonstop, 3h 10m)</span><span class='price'>$218</span><span class='emissions'>-12% emissions</span></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://google.com/travel/flights/search"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Flights to Miami (MIA) - Google Flights"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://google.com/travel/flights"
+      },
+      {
+        "step": 2,
+        "action": "click",
+        "target": "button[aria-label='Search']"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_008",
+    "domain": "Travel & Search",
+    "user_task": "Search flights from Chicago to Seattle on Skyscanner",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unclicked_flight_search",
+    "outcome_spec": {
+      "expected_url": "https://skyscanner.com",
+      "page_title": "Skyscanner | Compare Cheap Flights",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://skyscanner.com",
+      "page_title": "Skyscanner | Compare Cheap Flights",
+      "dom_summary": "<div class='flight-search-form'><input id='origin-fld' value='Chicago O'Hare (ORD)'/><input id='dest-fld' value='Seattle-Tacoma (SEA)'/><input id='depart-date' value='2026-11-20'/><button id='search-flights-btn'>Search flights</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://skyscanner.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Skyscanner | Compare Cheap Flights"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#origin-fld",
+        "value": "Chicago O'Hare (ORD)"
+      },
+      {
+        "step": 2,
+        "action": "fill",
+        "target": "input#dest-fld",
+        "value": "Seattle-Tacoma (SEA)"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_009",
+    "domain": "Travel & Search",
+    "user_task": "Select dates and guests for mountain lodge on VRBO",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "uncommenced_booking_request",
+    "outcome_spec": {
+      "expected_url": "https://vrbo.com/property/104928",
+      "page_title": "Serene Mountain Lodge - VRBO",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://vrbo.com/property/104928",
+      "page_title": "Serene Mountain Lodge - VRBO",
+      "dom_summary": "<div class='booking-sidebar'><div class='dates-box'><span>Nov 18 - Nov 23 (5 nights)</span></div><select id='guests'><option value='4' selected=''>4 Adults</option></select><button id='book-now-btn' class='btn'>Request to Book</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://vrbo.com/property/104928"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Serene Mountain Lodge - VRBO"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "select",
+        "target": "select#guests",
+        "value": "4"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_010",
+    "domain": "Travel & Search",
+    "user_task": "Fill passenger passport information for international flight on Delta",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_passenger_details",
+    "outcome_spec": {
+      "expected_url": "https://delta.com/checkout/passengers",
+      "page_title": "Passenger Information - Delta",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://delta.com/checkout/passengers",
+      "page_title": "Passenger Information - Delta",
+      "dom_summary": "<form class='passenger-form'><input name='first_name' value='David'/><input name='last_name' value='Miller'/><input name='passport_number' value='A98214029'/><button type='button' id='next-seats'>Select Seats & Review</button></form>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://delta.com/checkout/passengers"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Passenger Information - Delta"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input[name='passport_number']",
+        "value": "A98214029"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_011",
+    "domain": "Travel & Search",
+    "user_task": "Lookup subway transit directions from Times Square to Brooklyn Bridge",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unsubmitted_navigation_query",
+    "outcome_spec": {
+      "expected_url": "https://maps.google.com",
+      "page_title": "Google Maps",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://maps.google.com",
+      "page_title": "Google Maps",
+      "dom_summary": "<div class='directions-card'><input id='start-point' value='Times Square, Manhattan, NY'/><input id='end-point' value='Brooklyn Bridge, New York, NY'/><button id='get-transit-directions'>Get Directions</button></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://maps.google.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Google Maps"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#start-point",
+        "value": "Times Square, Manhattan, NY"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_012",
+    "domain": "Travel & Search",
+    "user_task": "Select economy car class for airport car rental on Enterprise",
+    "ground_truth": "PARTIAL",
+    "failure_variant": "unprogressed_rental_selection",
+    "outcome_spec": {
+      "expected_url": "https://enterprise.com/en/reserve/vehicles",
+      "page_title": "Choose a Vehicle - Enterprise",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://enterprise.com/en/reserve/vehicles",
+      "page_title": "Choose a Vehicle - Enterprise",
+      "dom_summary": "<div class='vehicle-carousel'><div class='car-card selected'><h4>Economy: Mitsubishi Mirage</h4><span class='rate'>$45/day</span><button class='btn-select-car'>Continue to Extras</button></div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://enterprise.com/en/reserve/vehicles"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Choose a Vehicle - Enterprise"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "div.car-card"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_013",
+    "domain": "Travel & Search",
+    "user_task": "Book one-way flight from New York to Tokyo on United Airlines",
+    "ground_truth": "FAILED",
+    "failure_variant": "agent_drift_domain_mismatch",
+    "outcome_spec": {
+      "expected_url": "https://amazon.com",
+      "page_title": "Amazon.com: Online Shopping",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://amazon.com",
+      "page_title": "Amazon.com: Online Shopping",
+      "dom_summary": "<main><div class='s-result-list'><h1>Results for 'Tokyo travel guide books'</h1></div></main>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://amazon.com"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Amazon.com: Online Shopping"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://amazon.com"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_014",
+    "domain": "Travel & Search",
+    "user_task": "Search flights from Boston to Miami on Spirit Airlines",
+    "ground_truth": "FAILED",
+    "failure_variant": "http_503_service_unavailable",
+    "outcome_spec": {
+      "expected_url": "https://spirit.com/flights/search/error",
+      "page_title": "Service Unavailable - Spirit Airlines",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://spirit.com/flights/search/error",
+      "page_title": "Service Unavailable - Spirit Airlines",
+      "dom_summary": "<main class='error-box'><h1>503 Service Unavailable</h1><p>Our flight booking servers are undergoing scheduled maintenance. Please try again later.</p></main>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://spirit.com/flights/search/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Service Unavailable - Spirit Airlines"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://spirit.com"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_015",
+    "domain": "Travel & Search",
+    "user_task": "Search non-stop flights from London to Honolulu on Kayak",
+    "ground_truth": "FAILED",
+    "failure_variant": "impossible_route_zero_results",
+    "outcome_spec": {
+      "expected_url": "https://kayak.com/flights/LON-HNL",
+      "page_title": "Search Flights - KAYAK",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://kayak.com/flights/LON-HNL",
+      "page_title": "Search Flights - KAYAK",
+      "dom_summary": "<main class='results-empty'><h2>No non-stop flights found for this route</h2><p>Try enabling connecting flights or searching nearby departure airports.</p></main>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://kayak.com/flights/LON-HNL"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Search Flights - KAYAK"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button[aria-label='Search flights']"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_016",
+    "domain": "Travel & Search",
+    "user_task": "Check in online for flight AA-104 on American Airlines",
+    "ground_truth": "FAILED",
+    "failure_variant": "checkin_deadline_expired",
+    "outcome_spec": {
+      "expected_url": "https://aa.com/checkin/denied",
+      "page_title": "Check-in Closed - American Airlines",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://aa.com/checkin/denied",
+      "page_title": "Check-in Closed - American Airlines",
+      "dom_summary": "<div class='error-alert'><h3>Check-in Not Available</h3><p>Online check-in closes 45 minutes prior to domestic departures. Please proceed to airport ticket counter.</p></div>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://aa.com/checkin/denied"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Check-in Closed - American Airlines"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "click",
+        "target": "button#submit-checkin"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_017",
+    "domain": "Travel & Search",
+    "user_task": "Lookup weather history for year 1820 on AccuWeather",
+    "ground_truth": "FAILED",
+    "failure_variant": "out_of_range_query_error",
+    "outcome_spec": {
+      "expected_url": "https://accuweather.com/error",
+      "page_title": "Historical Data Error",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://accuweather.com/error",
+      "page_title": "Historical Data Error",
+      "dom_summary": "<div class='error-view'><h2>Unsupported Date Range</h2><p>Digital meteorological observation records are only available from 1950 onwards.</p></div>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://accuweather.com/error"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Historical Data Error"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "fill",
+        "target": "input#year",
+        "value": "1820"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_018",
+    "domain": "Travel & Search",
+    "user_task": "Book luxury private yacht charter on Boatsetter",
+    "ground_truth": "FAILED",
+    "failure_variant": "hallucination_informational_drift",
+    "outcome_spec": {
+      "expected_url": "https://wikipedia.org",
+      "page_title": "Yacht charter - Wikipedia",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://wikipedia.org",
+      "page_title": "Yacht charter - Wikipedia",
+      "dom_summary": "<main><h1>Yacht charter</h1><p>A yacht charter is the practice of renting a sailboat or motor yacht and travelling to various coastal or island destinations.</p></main>",
+      "console_logs": [
+        "Task terminated with error"
+      ],
+      "network_logs": [
+        {
+          "status": 503,
+          "url": "https://wikipedia.org"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Yacht charter - Wikipedia"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://wikipedia.org/wiki/Yacht_charter"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_019",
+    "domain": "Travel & Search",
+    "user_task": "Solve Cloudflare Turnstile human verification challenge on Tripadvisor",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "cloudflare_turnstile_captcha_block",
+    "outcome_spec": {
+      "expected_url": "https://tripadvisor.com/challenge",
+      "page_title": "Just a moment...",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://tripadvisor.com/challenge",
+      "page_title": "Just a moment...",
+      "dom_summary": "<div id='challenge-stage'><div class='cf-turnstile-wrapper'><iframe src='https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/b/turnstile/if/ov2' title='Widget containing a Cloudflare security challenge'></iframe></div><p>Verifying you are human. This may take a few seconds.</p></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://tripadvisor.com/challenge"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Just a moment..."
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://tripadvisor.com"
+      }
+    ]
+  },
+  {
+    "task_id": "travel_020",
+    "domain": "Travel & Search",
+    "user_task": "Track live transatlantic flight radar location on FlightAware",
+    "ground_truth": "UNCERTAIN",
+    "failure_variant": "webgl_radar_feed_unparsed",
+    "outcome_spec": {
+      "expected_url": "https://flightaware.com/live/flight/BAW178",
+      "page_title": "Live Flight Tracking - BAW178",
+      "intent_type": "respondent"
+    },
+    "evidence_package": {
+      "audited_url": "https://flightaware.com/live/flight/BAW178",
+      "page_title": "Live Flight Tracking - BAW178",
+      "dom_summary": "<div class='radar-view'><canvas id='map-gl-canvas' width='1400' height='700'></canvas><div class='satellite-status'>Connecting to ADS-B Satellite feed...</div></div>",
+      "console_logs": [],
+      "network_logs": [
+        {
+          "status": 200,
+          "url": "https://flightaware.com/live/flight/BAW178"
+        }
+      ],
+      "accessibility_tree": {
+        "role": "WebArea",
+        "name": "Live Flight Tracking - BAW178"
+      }
+    },
+    "action_trace": [
+      {
+        "step": 1,
+        "action": "navigate",
+        "target": "https://flightaware.com/live/flight/BAW178"
+      }
+    ]
+  }
+]
